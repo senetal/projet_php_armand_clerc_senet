@@ -11,6 +11,7 @@ create table products(
   image varchar(16),
   description varchar(256),
   category varchar(32),
+  address varchar(32),
   foreign key(category) references category(name)
 );
 create table user(

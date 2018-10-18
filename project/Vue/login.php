@@ -12,5 +12,9 @@
       <input type="password" name="password" value="" maxlength="64" required><br>
       <input type="submit" name="submit" value="Se connecter">
     </form>
+    <form class="new compte" action="index.html" method="post">
+      <p>Vous n'avez pas de compte ?</p>
+      <input type="submit" name="submit" value="Créer un compte">
+    </form>
   </body>
 </html>

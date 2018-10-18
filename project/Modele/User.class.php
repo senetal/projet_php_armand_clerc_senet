@@ -1,11 +1,10 @@
 <?php
 
 class User{
-$id;
-$name;
-$price;
-$password;
-$mail;
+public $id;
+public $name;
+public $password;
+public $mail;
 
 }
 

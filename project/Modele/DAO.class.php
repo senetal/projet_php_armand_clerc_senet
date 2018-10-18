@@ -1,14 +1,15 @@
 <?php
 
 
-$DAO = new DAO();
+$dao = new DAO();
 
 class DAO{
 
-$db;
-$source = 'sqlite data.db';
+public $db;
+public $source = 'sqlite:../Modele/data/data.db';
 
 function __construct() {
+
 
 
   try{

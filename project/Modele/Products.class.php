@@ -1,13 +1,13 @@
 <<?php
 
 class Products{
-$ref;
-$name;
-$price;
-$image;
-$description;
-$category;
-$address;
+public $ref;
+public $name;
+public $price;
+public $image;
+public $description;
+public $category;
+public $address;
 
 }
 

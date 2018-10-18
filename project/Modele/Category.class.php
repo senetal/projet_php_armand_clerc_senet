@@ -1,10 +1,9 @@
-<<?php
+<?php
 
 
 class Category{
-
-$name;
-$category;
+public $name;
+public $category;
 
 }
 

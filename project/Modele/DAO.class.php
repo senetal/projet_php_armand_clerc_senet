@@ -19,12 +19,12 @@ function __construct() {
 }
 
 
-function getAllCat() : array {
+function getAllCategory() : array {
 
-  $req = "SELECT * FROM categorie";
+  $req = "SELECT * FROM category";
 
   $querry = ($this->db)->query($req);
-  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'categorie');
+  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Category');
 
 
 
@@ -36,11 +36,11 @@ function getAllCat() : array {
 // Accès aux n premiers articles
 // Cette méthode retourne un tableau contenant les n permier articles de
 // la base sous la forme d'objets de la classe Article.
-function firstN(int $n) : array {
-  $req = "SELECT * FROM article ORDER BY ref limit $n ";
+function firstProducts(int $n) : array {
+  $req = "SELECT * FROM products ORDER BY ref limit $n ";
 
   $querry = ($this->db)->query($req);
-  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'article');
+  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
 
 
 
@@ -55,10 +55,10 @@ function getN(int $ref,int $n) : array {
   //  A COMPLETER
   ///////////////////////////////////////////////
 
-  $req = "SELECT * FROM article WHERE ref >=$ref ORDER BY ref limit $n ";
+  $req = "SELECT * FROM Products WHERE ref >=$ref ORDER BY ref limit $n ";
 
   $querry = ($this->db)->query($req);
-  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'article');
+  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
 
 
 
@@ -70,7 +70,7 @@ function getN(int $ref,int $n) : array {
 // Acces à la référence qui suit la référence $ref dans l'ordre des références
 function next(int $ref) : int {
   if($ref!=0){
-    $req = "SELECT ref FROM article WHERE ref >$ref ORDER BY ref limit 1 ";
+    $req = "SELECT ref FROM Products WHERE ref >$ref ORDER BY ref limit 1 ";
 
     $querry = ($this->db)->query($req);
     $tab = $querry->fetch();
@@ -89,10 +89,10 @@ function prevN(int $ref,int $n): array {
   //  A COMPLETER
   ///////////////////////////////////////////////
 
-  $req = "SELECT * from article WHERE ref<$ref ORDER BY ref DESC LIMIT $n ";
+  $req = "SELECT * from Products WHERE ref<$ref ORDER BY ref DESC LIMIT $n ";
 
   $querry = ($this->db)->query($req);
-  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'article');
+  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
 
 
 
@@ -106,10 +106,10 @@ function prevN(int $ref,int $n): array {
 function getCat(int $id): Categorie {
 
 
-  $req = "SELECT * from categorie WHERE id = $id  ";
+  $req = "SELECT * from Category WHERE id = $id  ";
 
   $querry = ($this->db)->query($req);
-  $cat = $querry->fetch(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'categorie');
+  $cat = $querry->fetch(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Category');
 
 
   return $cat;
@@ -120,10 +120,10 @@ function getCat(int $id): Categorie {
 
 function getNCateg(int $ref,int $n,string $categorie) : array {
 
-  $req = "SELECT * FROM article WHERE ref >=$ref and categorie =$categorie ORDER BY ref limit $n ";
+  $req = "SELECT * FROM Products WHERE ref >=$ref and category =$categorie ORDER BY ref limit $n ";
 
   $querry = ($this->db)->query($req);
-  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'article');
+  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
 
 
 

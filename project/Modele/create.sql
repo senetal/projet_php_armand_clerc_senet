@@ -19,7 +19,5 @@ create table user(
   id integer primary key,
   name varchar(64) not null,
   password varchar(64) not null,
-  mail varchar(64) not null,
-  tel varchar(10) not null,
-  address varchar(256)
+  mail varchar(64) not null
 );

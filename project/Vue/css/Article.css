@@ -1,7 +1,33 @@
-.article{
+.main .article{
   background-color: lightblue;
-  width: 400px;
-  float: left;
+  height: 300px;
+  width: 30%;
+  display: inline-block;
   margin: 10px;
   text-align: center;
+}
+
+.article img{
+  height: 40%;
+}
+
+.main{
+  background-color: green;
+}
+
+
+
+.arrow{
+  text-align: center;
+}
+
+.arrow a,p,img{
+
+    display: inline-block;
+}
+.arrow img{
+  width: 40px;
+  margin: 10px;
+  text-align: center;
+  background-color: red;
 }

@@ -14,7 +14,7 @@
 
     <article class="article">
 <h2><?=$a->name?></h2>
-<img src="<?=$imagePath.$a->image?>"  width="40%" alt="">
+<img src="<?=$imagePath.$a->image?>"   alt="">
 <p><?=$a->price ?>€</p> <br>
 <p><?=$a->description ?></p>
 <p> ref = <?=$a->ref ?></p>
@@ -23,7 +23,15 @@
 
 </div>
 
-<a href="#">  </a>
+<br>
+<br>
 
+<div class="arrow">
+
+<a href=<?php echo ("\"Products.ctrl.php?page=".($page-1))."\"" ?> > <img src="../Modele/data/images/left.png" alt="LEFT"> </a>
+<p> <?php echo $page ?> </p>
+<a href=<?php echo ("\"Products.ctrl.php?page=".($page+1))."\"" ?> > <img src="../Modele/data/images/right.png" alt="right"> </a>
+
+</div>
   </body>
 </html>

@@ -6,8 +6,7 @@ create table category(
 
 create table user(
 
-  id integer primary key,
-  name varchar(64) not null,
+  name varchar(64) primary key,
   password varchar(64) not null,
   mail varchar(64) not null,
   tel varchar(10) not null,

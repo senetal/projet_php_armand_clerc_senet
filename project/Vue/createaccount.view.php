@@ -5,7 +5,7 @@
     <title>Creer un compte</title>
   </head>
   <body>
-    <form class="createaccount" action="account.php" method="post">
+    <form class="createaccount" action="../Controleur/account.ctrl.php" method="post">
       <label for="pseudo">Pseudo:</label>
       <input type="text" name="pseudo" value="" maxlength="64" autofocus required><br>
       <label for="password">Mot de passe:</label>
@@ -17,7 +17,7 @@
       <label for="tel">Telephone:</label>
       <input type="text" name="tel" value="" maxlength="10" required><br>
       <label for="address">Adresse:</label>
-      <input type="text" name="adresse" value="" maxlength="256" required><br>
+      <input type="text" name="address" value="" maxlength="256" required><br>
 
       <input type="submit" name="submit" value="Creer le compte">
     </form>

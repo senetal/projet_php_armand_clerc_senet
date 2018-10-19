@@ -1,3 +1,5 @@
+<?php include 'header.php'; ?>
+
 <!DOCTYPE html>
 <html lang=fr dir="ltr">
   <head>
@@ -5,7 +7,20 @@
     <title>Accueil</title>
   </head>
   <body>
+    <header>
+      <?php header(); ?>
+    </header>
     <h1>Accueil</h1>
     <p>pour plus de contenu il faut attendre la fin du projet</p>
+
+
+
+    <div class="">
+
+    </div>
+
+    <footer>
+      <?php  ?>
+    </footer>
   </body>
 </html>

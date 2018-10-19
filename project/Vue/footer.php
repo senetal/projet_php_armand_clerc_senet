@@ -1,3 +1,5 @@
 <?php
-  fgbhg
+  function footer(){
+    echo'test';
+  }
 ?>

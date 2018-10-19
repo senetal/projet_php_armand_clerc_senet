@@ -1,4 +1,5 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php';
+include 'footer.php'; ?>
 
 <!DOCTYPE html>
 <html lang=fr dir="ltr">
@@ -8,7 +9,7 @@
   </head>
   <body>
     <header>
-      <?php header(); ?>
+      <?php header();?>
     </header>
     <h1>Accueil</h1>
     <p>pour plus de contenu il faut attendre la fin du projet</p>
@@ -20,7 +21,7 @@
     </div>
 
     <footer>
-      <?php  ?>
+      <?php footer(); ?>
     </footer>
   </body>
 </html>

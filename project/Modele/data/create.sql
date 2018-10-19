@@ -4,7 +4,6 @@ create table category(
   foreign key(category) references category(name)
 );
 
-
 create table user(
 
   id integer primary key,

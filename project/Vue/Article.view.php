@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Mes articles</title>
+    <link rel="stylesheet" href="../Vue/css/Article.css">
   </head>
   <body>
 
@@ -13,13 +14,16 @@
 
     <article class="article">
 <h2><?=$a->name?></h2>
-<img src="<?=$imagePath.$a->image?>" alt="">
+<img src="<?=$imagePath.$a->image?>"  width="40%" alt="">
 <p><?=$a->price ?>€</p> <br>
-<p><?=$a->description ?>€</p>
+<p><?=$a->description ?></p>
+<p> ref = <?=$a->ref ?></p>
 </article>
   <?php endforeach?>
 
 </div>
+
+<a href="#">  </a>
 
   </body>
 </html>

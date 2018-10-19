@@ -133,6 +133,22 @@ function getNCateg(int $ref,int $n,string $categorie) : array {
 }
 
 
+function getPage(int $page,int $n) : array{
+  $req = "SELECT * from Products ORDER BY ref LIMIT $page,$n";
+  $querry = ($this->db)->query($req);
+  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
+  return $tab;
+}
+
+function getPageCategorie(int $page,int $n,$categorie) : array{
+  $req = "SELECT * from Products WHERE category=$categorie ORDER BY ref LIMIT $page,$n";
+  $querry = ($this->db)->query($req);
+  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
+  return $tab;
+}
+
+
+
 }
 
  ?>

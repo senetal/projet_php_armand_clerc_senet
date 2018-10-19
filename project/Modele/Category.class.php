@@ -2,9 +2,8 @@
 
 
 class Category{
-
-$name;
-$category;
+public $name;
+public $category;
 
 }
 

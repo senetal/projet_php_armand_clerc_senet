@@ -9,7 +9,7 @@ include 'footer.php'; ?>
   </head>
   <body>
     <header>
-      <?php header();?>
+      <?php writeheader();?>
     </header>
     <h1>Accueil</h1>
     <p>pour plus de contenu il faut attendre la fin du projet</p>
@@ -21,7 +21,7 @@ include 'footer.php'; ?>
     </div>
 
     <footer>
-      <?php footer(); ?>
+      <?php writefooter(); ?>
     </footer>
   </body>
 </html>

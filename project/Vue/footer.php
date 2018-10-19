@@ -1,5 +1,5 @@
 <?php
-  function footer(){
+  function writefooter(){
     echo'test';
   }
 ?>

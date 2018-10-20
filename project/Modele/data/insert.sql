@@ -21,3 +21,5 @@ insert into products values
     (4,'Chat Masque',56,'4.jpg','Vous ne savez pas ce quil prepare','Mignon',0),
       (5,'Chat percher',74,'5.jpg','Big broser waching you','MANGE TON AME',1)
   ;
+
+INSERT INTO panier Values ('clercma',1,0);

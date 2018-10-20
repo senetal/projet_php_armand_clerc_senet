@@ -13,13 +13,25 @@ $r=  "insert into products values
       (5,'Chat percher',74,'5.jpg','Big broser waching you','MANGE TON AME',1)";
 */
 
-$r = "UPDATE products SET image = '5.jpg' WHERE ref = 5";
+//$r = "UPDATE products SET image = '5.jpg' WHERE ref = 5";
+$r ="create table panier(
+  name varchar(64) primary key,
+  ref integer primary key,
+  cout integer,
+  foreign key(userid) references user(name),
+  foreign key(ref) references products(ref)
 
+)";
+$res = 2;
+try{
 $res = $db->exec($r);
 var_dump ($res);
+}catch(PDOException $e){
+  die("erreur de connexion:".$e->getMessage()." \n $this->db \n");
+}
 
 
-      $req = "SELECT * FROM products ";
+      $req = "SELECT * FROM panier ";
 
       $querry = $db->query($req);
       $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');

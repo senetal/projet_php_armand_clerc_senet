@@ -6,6 +6,7 @@ $imagePath = "../Modele/data/images/";
 
 $limitPerPage = 3;
 $max = 6;
+//Gestion des page
 if(isset($_GET['category'])){
 
 
@@ -28,6 +29,18 @@ $nb = $page*$limitPerPage;
 //$products = $dao->firstProducts($limitPerPage);
 $products = $dao->getPage($nb,$limitPerPage);
 };
+//Gestion de l'ajout au panier
+
+if(isset($_GET['add'])){
+
+  $ref = intval($_GET['add']);
+  //Pour les test
+  $name = "clercma";
+
+$dao->addPanier($name,$ref);
+
+
+}
 
 include '../Vue/Article.view.php';
 

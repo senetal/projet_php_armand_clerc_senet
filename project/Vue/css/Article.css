@@ -1,3 +1,7 @@
+.article .prix{
+  font-weight: bold;
+}
+
 .main .article{
   background-color: lightblue;
   height: 300px;

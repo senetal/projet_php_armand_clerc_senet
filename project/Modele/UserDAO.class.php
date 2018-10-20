@@ -1,11 +1,14 @@
 <?php
-
+include 'DAO.class.php';
 class UserDAO
 {
   private $db;
   function __construct()
   {
-    $this->db = new PDO("sqlite:data/data.db");
+    //$this->db = new PDO("sqlite:data/data.db");
+    //Utilsation du meme DAO 
+    $dao = new DAO();
+    $this->db = $dao->db;
   }
 
   public function get(string $pseudo):User{

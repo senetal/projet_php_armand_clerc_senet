@@ -146,6 +146,9 @@ function getPageCategorie(int $page,int $n,$categorie) : array{
   $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
   return $tab;
 }
+
+
+
 //Pense as gere le cas de multiple ajout avec des triger
 function addPanier(string $name ,int $ref){
   //$req = "INSERT INTO panier Values ($name,$ref,0)";
@@ -158,9 +161,19 @@ $prep = ($this->db)->prepare($req);
 	'ref' => $ref
 	));
 
-var_dump($querry);
+
 echo (" DAO Class l 157 : $req");
 }
+
+function getProduisPanier(string $name):array{
+
+$req ="SELECT p.*,q.count from products as p , panier as q WHERE q.name ="'$name'" and q.ref = p.ref"
+$querry = ($this->db)->query($req);
+$tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
+return tab;
+}
+
+
 
 }
 

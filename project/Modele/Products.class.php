@@ -11,4 +11,14 @@ public $address;
 
 }
 
+
+
  ?>
+
+ <?php
+
+ class ProductsPanier extends Products{
+  public $count;
+ }
+
+  ?>

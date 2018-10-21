@@ -28,7 +28,7 @@ create table products(
 create table panier(
   name varchar(64) ,
   ref integer ,
-  cout integer,
+  count integer,
   foreign key(name) references user(name),
   foreign key(ref) references products(ref),
   primary key(name,ref)

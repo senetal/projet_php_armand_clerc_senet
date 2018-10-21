@@ -149,7 +149,7 @@ function getPageCategorie(int $page,int $n,$categorie) : array{
 //Pense as gere le cas de multiple ajout avec des triger
 function addPanier(string $name ,int $ref){
   //$req = "INSERT INTO panier Values ($name,$ref,0)";
-  $req = "INSERT INTO panier Values(:name,:ref,0)";
+  $req = "INSERT INTO panier Values(:name,:ref,1)";
 $prep = ($this->db)->prepare($req);
 
 

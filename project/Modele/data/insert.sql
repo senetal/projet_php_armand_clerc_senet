@@ -22,4 +22,4 @@ insert into products values
       (5,'Chat percher',74,'5.jpg','Big broser waching you','MANGE TON AME',1)
   ;
 
-INSERT INTO panier Values ('clercma',1,0);
+INSERT INTO panier Values ('clercma',1,1),('clercma',3,1);

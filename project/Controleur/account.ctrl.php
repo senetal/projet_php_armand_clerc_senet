@@ -29,20 +29,19 @@
 
   if (isset($password2)) {
     if ($password!=$password2){
-      $error = 'Mots de passe différents, veuillez réessayer.';
+      header('Location : ../Vue/createaccount.view.php&err=badpw');
+      exit();
     } else {
       $_SESSION['user']=createUser($name,$password,$mail,$tel,$address)
     }
-  else {
+  } else {
       $usr=getUser($name,$password);
       if ($usr!=NULL){
         $_SESSION['user']=$usr;
       } else {
-        //Faudrait retourner à la page d'avant mais j'vois pas comment 
+        header('Location : ../Vue/login.view.php&err=badpw');
+      exit();
       }
-  }
-
-
   }
 
 

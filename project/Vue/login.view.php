@@ -6,6 +6,7 @@
   </head>
   <body>
     <form class="login" action="../Controleur/account.ctrl.php" method="post">
+      <?php if ($_GET['err']) {echo "<p>Login ou mot de passe incorrect.</p>";} ?>
       <label for="pseudo">Pseudo:</label>
       <input type="text" name="pseudo" value="" maxlength="64" autofocus required><br>
       <label for="password">Mot de passe:</label>

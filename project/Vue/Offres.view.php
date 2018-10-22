@@ -2,20 +2,19 @@
 <html lang=fr dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Offre</title>
+    <title>Offres</title>
   </head>
   <body>
     <header>
-      <div class="">
-        accueil + les options + connexion
-      </div>
+      <?php include('header.php')?>
     </header>
-    <div class="">
 
+    <div class="">
+      <h1>Offres</h1>
     </div>
 
     <footer>
-      les ref
+      <?php include('footer.php')?>
     </footer>
   </body>
 </html>

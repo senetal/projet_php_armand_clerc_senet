@@ -9,7 +9,7 @@ include 'footer.php'; ?>
   </head>
   <body>
     <header>
-      <?php writeheader();?>
+      <?php include('header.php')?>
     </header>
     <h1>Accueil</h1>
     <p>pour plus de contenu il faut attendre la fin du projet</p>

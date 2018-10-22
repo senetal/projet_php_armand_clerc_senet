@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="../Vue/css/Article.css">
 </head>
 <body>
-
+  <?php include('../Vue/header.php')?>
   <h1>Voici les chat disponible</h1>
 
   <div class="main">
@@ -18,7 +18,7 @@
         <br>
         <p class="prix"><?=$a->price ?>€</p> <br>
         <p><?=$a->description ?></p>
-      
+
 
         <form class="bouton" action="Products.ctrl.php" method="get">
           <input type="hidden" name="add" value=<?php echo ("\"$a->ref\"") ?> >

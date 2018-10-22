@@ -140,9 +140,9 @@ function getPage(int $page,int $n) : array{
   $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
   return $tab;
 }
-
+//As reaiore avec un perpare
 function getPageCategorie(int $page,int $n,$categorie) : array{
-  $req = "SELECT * from Products WHERE category=$categorie ORDER BY ref LIMIT $page,$n";
+  $req = "SELECT * from Products WHERE category='$categorie' ORDER BY ref LIMIT $page,$n";
   $querry = ($this->db)->query($req);
   $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
   return $tab;
@@ -180,7 +180,7 @@ function getUser(string $name, string $password):User{
 	$tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'User');
 return $tab[0];
 }
-	
+
   public function create(string $pseudo, string $password, string $mail, string $tel, string $address):User{
     ($this->db)->query("insert into user values($pseudo,$password,$mail,$tel,$address)");
 	  return new User($pseudo,$password,$mail,$tel,$address);

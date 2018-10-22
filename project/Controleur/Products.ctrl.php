@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include '../Modele/Products.class.php';
 include '../Modele/DAO.class.php';
 $imagePath = "../Modele/data/images/";

@@ -1,3 +1,4 @@
+  <link rel="stylesheet" href="../Vue/css/Header.css">
 <div class="header">
   <nav>
     <div class="refBareMenu">

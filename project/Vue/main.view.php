@@ -1,6 +1,3 @@
-<?php include 'header.php';
-include 'footer.php'; ?>
-
 <!DOCTYPE html>
 <html lang=fr dir="ltr">
   <head>
@@ -21,7 +18,7 @@ include 'footer.php'; ?>
     </div>
 
     <footer>
-      <?php writefooter(); ?>
+      <?php include('footer.php')?>
     </footer>
   </body>
 </html>

@@ -16,4 +16,4 @@
   <nav>
     <a title="Connexion" href="">Connexion</a>
   </nav>
-</div>;
+</div>

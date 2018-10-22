@@ -1,5 +1,1 @@
-<?php
-  function writefooter(){
-    echo'test';
-  }
-?>
+<p>footer</p>

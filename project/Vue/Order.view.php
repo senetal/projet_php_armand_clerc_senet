@@ -19,6 +19,7 @@ $sumCount = 0;
   <?php foreach ($tab as $a): ?>
 <article class="zone">
   <h2>Nom : <?= $a->name; ?> </h2>
+  <p> ref : <?=$a->ref?></p>
 
 <img src=<?php echo "\"../Modele/data/images/$a->image\""; ?> alt="Une image">
   <br>

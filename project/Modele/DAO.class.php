@@ -69,7 +69,7 @@ function getUser(string $name, string $password):User{
 return $tab[0];
 }
 
-  public function create(string $pseudo, string $password, string $mail, string $tel, string $address):User{
+  public function createUser(string $pseudo, string $password, string $mail, string $tel, string $address):User{
     ($this->db)->query("insert into user values($pseudo,$password,$mail,$tel,$address)");
 	  return new User($pseudo,$password,$mail,$tel,$address);
   }

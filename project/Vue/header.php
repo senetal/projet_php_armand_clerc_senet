@@ -6,9 +6,9 @@
 <div class="">
   <nav>
     <ul>
-      <a title="Dépot d\'annonce" href=""><li>Dépot d'annonce</li></a>
-      <a title="Offres" href=""><li>Offres</li></a>
-      <a title="Demandes" href=""><li>Demandes</li></a>
+      <li><a href=""><li>Dépot d'annonce</li></a></li>
+      <li><a href=""><li>Offres</li></a></li>
+      <li><a href=""><li>Demandes</li></a></li>
     </ul>
   </nav>
 </div>

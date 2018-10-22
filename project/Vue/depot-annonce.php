@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>Dépôt d'annonce</title>
+    <link rel="stylesheet" href="../Vue/css/Header.css">
   </head>
   <body>
     <header>
       <?php include('header.php')?>
     </header>
-    
+
     <div class="">
       <h1>Dépot</h1>
     </div>

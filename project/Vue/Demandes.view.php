@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Demandes</title>
+    <link rel="stylesheet" href="../Vue/css/Header.css">
   </head>
   <body>
     <header>

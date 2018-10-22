@@ -3,8 +3,6 @@ session_start();
   require_once('../Modele/User.class.php');
   require_once('../Modele/DAO.class.php');
 
-  session_start();
-
   foreach($_POST as $key => $value){
     switch($key) {
       case "pseudo":

@@ -51,7 +51,7 @@ $prep = ($this->db)->prepare($req);
 	));
 
 
-echo (" DAO Class l 157 : $req");
+//echo (" DAO Class l 157 : $req");
 }
 
 function getProduisPanier(string $name):array{

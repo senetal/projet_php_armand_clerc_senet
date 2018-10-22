@@ -1,5 +1,6 @@
 <?php
 
+require_once('User.class.php');
 
 $dao = new DAO();
 
@@ -173,7 +174,12 @@ $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier'
 return $tab;
 }
 
-
+function getUser(string $name, string $password):User{
+	$req="select * from user where name=$name and password=$password";
+	$query = ($this->db)->query($req);
+	$tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'User');
+return $tab[0];
+}
 
 }
 

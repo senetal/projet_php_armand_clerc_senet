@@ -4,12 +4,29 @@
 }
 
 .zone {
+
   border-style: inset;
   border-radius: 1px;
+  margin-left:  25%;
+     padding: 0;
+     width: 50%;
+     background-color: #f1f1f1;
 
+     height: 100%;
+     overflow: auto;
+
+    display: inline-block;
+      text-align: center;
 }
 
 .achat{
   border-style: inset;
   border-radius: 2px;
+}
+
+.Conclution{
+  text-align: center;
+  border-style: inset;
+  border-radius: 1px;
+  font-weight: bold;
 }

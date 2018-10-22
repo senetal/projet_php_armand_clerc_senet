@@ -1,8 +1,8 @@
 <?php
   require_once('../Modele/User.class.php');
-  require_once('../Modele/UserDAO.class.php');
+  require_once('../Modele/DAO.class.php');
 
-  $users=new UserDAO();
+  session_start();
 
   foreach($_POST as $key => $value){
     switch($key) {
@@ -30,7 +30,17 @@
   if (isset($password2)) {
     if ($password!=$password2){
       $error = 'Mots de passe différents, veuillez réessayer.';
+    } else {
+      $_SESSION['user']=createUser($name,$password,$mail,$tel,$address)
     }
+  else {
+      $usr=getUser($name,$password);
+      if ($usr!=NULL){
+        $_SESSION['user']=$usr;
+      } else {
+        //Faudrait retourner à la page d'avant mais j'vois pas comment 
+      }
+  }
 
 
   }

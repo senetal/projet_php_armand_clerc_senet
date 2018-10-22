@@ -6,7 +6,8 @@ $name = 'clercma';
 
 $tab = $dao->getProduisPanier($name);
 
-var_dump($tab);
+//var_dump($tab);
 
+include '../Vue/Order.view.php';
 
  ?>

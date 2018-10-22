@@ -1,0 +1,15 @@
+.zone img{
+  height: 100px;
+  width: 100px;
+}
+
+.zone {
+  border-style: inset;
+  border-radius: 1px;
+
+}
+
+.achat{
+  border-style: inset;
+  border-radius: 2px;
+}

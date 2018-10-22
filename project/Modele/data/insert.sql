@@ -1,7 +1,7 @@
 insert into user values
-  (0,'armandsyl','password','sylvain.armand@gmail.com','0102030405','1 rue Charles de Gaulle 76600 LE HAVRE'),
-  (1,'clercma','password','max.clerc@gmail.com','0602030405','87 avenue Victor Hugo 45200 MONTARGIS'),
-  (2,'senetal','password','alexandre.senet@gmail.com','0702030405','1 rue Charles de Gaulle 17500 BERGERAC');
+  ('armandsyl','password','sylvain.armand@gmail.com','0102030405','1 rue Charles de Gaulle 76600 LE HAVRE'),
+  ('clercma','password','max.clerc@gmail.com','0602030405','87 avenue Victor Hugo 45200 MONTARGIS'),
+  ('senetal','password','alexandre.senet@gmail.com','0702030405','1 rue Charles de Gaulle 17500 BERGERAC');
 
 insert into category values
   ('',NULL),
@@ -21,3 +21,5 @@ insert into products values
     (4,'Chat Masque',56,'4.jpg','Vous ne savez pas ce quil prepare','Mignon',0),
       (5,'Chat percher',74,'5.jpg','Big broser waching you','MANGE TON AME',1)
   ;
+
+INSERT INTO panier Values ('clercma',1,1),('clercma',3,1);

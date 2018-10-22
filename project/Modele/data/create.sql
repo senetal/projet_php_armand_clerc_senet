@@ -6,8 +6,7 @@ create table category(
 
 create table user(
 
-  id integer primary key,
-  name varchar(64) not null,
+  name varchar(64) primary key,
   password varchar(64) not null,
   mail varchar(64) not null,
   tel varchar(10) not null,
@@ -21,7 +20,17 @@ create table products(
   image varchar(16),
   description varchar(256),
   category varchar(32),
-  owner integer,
+  owner varchar(64) ,
   foreign key(category) references category(name),
-  foreign key(owner) references user(id)
+  foreign key(owner) references user(name)
+);
+
+create table panier(
+  name varchar(64) ,
+  ref integer ,
+  count integer,
+  foreign key(name) references user(name),
+  foreign key(ref) references products(ref),
+  primary key(name,ref)
+
 );

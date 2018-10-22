@@ -149,6 +149,32 @@ function getPageCategorie(int $page,int $n,$categorie) : array{
 
 
 
+//Pense as gere le cas de multiple ajout avec des triger
+function addPanier(string $name ,int $ref){
+  //$req = "INSERT INTO panier Values ($name,$ref,0)";
+  $req = "INSERT INTO panier Values(:name,:ref,1)";
+$prep = ($this->db)->prepare($req);
+
+
+  $querry = $prep->execute(array(
+	'name' => $name,
+	'ref' => $ref
+	));
+
+
+echo (" DAO Class l 157 : $req");
+}
+
+function getProduisPanier(string $name):array{
+
+$req ="SELECT p.*,q.count from products as p , panier as q WHERE q.name ="'$name'" and q.ref = p.ref"
+$querry = ($this->db)->query($req);
+$tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
+return tab;
+}
+
+
+
 }
 
  ?>

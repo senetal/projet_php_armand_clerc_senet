@@ -1,14 +1,17 @@
 <?php
-
+include 'DAO.class.php';
 class UserDAO
 {
   private $db;
   function __construct()
   {
-    $this->db = new PDO("sqlite:data/data.db");
+    //$this->db = new PDO("sqlite:data/data.db");
+    //Utilsation du meme DAO 
+    $dao = new DAO();
+    $this->db = $dao->db;
   }
 
-  public function get(int $id):User{
+  public function get(string $pseudo):User{
 
     $query = ($this->db)->query("select * from user where id=$id");
     if ($query){
@@ -16,6 +19,10 @@ class UserDAO
     }
     return $user[0];
 
+  }
+
+  public function create(string $pseudo, string $password, string $mail, string $tel, string $address){
+    ($this->db)->query("insert into user values($pseudo,$password,$mail,$tel,$address)");
   }
 
 }

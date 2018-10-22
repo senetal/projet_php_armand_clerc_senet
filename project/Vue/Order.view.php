@@ -5,12 +5,15 @@
     <title>Commander</title>
   </head>
   <body>
+<h1>Facture</h1>
+  <?php foreach ($tab as $a): ?>
+<article class="zone">
+  <h2>Nom : <?php $a->name ?> </h2>
+  <br>
 
-    <?php
+</article>
 
-echo "$tab";
-
-     ?>
+    <?php endforeach?>
 
   </body>
 </html>

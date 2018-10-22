@@ -131,7 +131,7 @@ function getNCateg(int $ref,int $n,string $categorie) : array {
   return $tab;
 
 }
-
+//////////////////////////////////////////////////////////////
 
 function getPage(int $page,int $n) : array{
   $req = "SELECT * from Products ORDER BY ref LIMIT $page,$n";
@@ -167,10 +167,10 @@ echo (" DAO Class l 157 : $req");
 
 function getProduisPanier(string $name):array{
 
-$req ="SELECT p.*,q.count from products as p , panier as q WHERE q.name ="'$name'" and q.ref = p.ref"
+$req ="SELECT p.*,q.count from products as p , panier as q WHERE q.name ='$name' and q.ref = p.ref";
 $querry = ($this->db)->query($req);
 $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
-return tab;
+return $tab;
 }
 
 

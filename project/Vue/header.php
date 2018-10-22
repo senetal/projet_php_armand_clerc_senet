@@ -1,19 +1,13 @@
-<div class="accueil">
+<div class="header">
   <nav>
-    <a title="Acceuil" href="">Acceuil</a>
-  </nav>
-</div>
-<div class="">
-  <nav>
-    <ul>
-      <li><a href=""><li>Dépot d'annonce</li></a></li>
-      <li><a href=""><li>Offres</li></a></li>
-      <li><a href=""><li>Demandes</li></a></li>
-    </ul>
-  </nav>
-</div>
-<div class="connexion">
-  <nav>
-    <a title="Connexion" href="">Connexion</a>
+    <div class="refBareMenu">
+      <ul>
+        <li><div class="refAccueil"><a href="">Acceuil</a></div></li>
+        <li><a href=""><li>Dépot d'annonce</li></a></li>
+        <li><a href=""><li>Offres</li></a></li>
+        <li><a href=""><li>Demandes</li></a></li>
+        <li style="float:right"><div class="refConnexion"><a href="">Connexion</a></div></li>
+      </ul>
+    </div>
   </nav>
 </div>

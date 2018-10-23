@@ -18,8 +18,9 @@ insert into products values
   (1,'Gros yeux',42,'1.jpg','je te voie','Mignon',0),
   (2,'Angry cat',38,'2.jpg','je suis joyeux','Colerique',0),
   (3,'Big cat',74,'3.jpg','US cat','Fat',0),
-    (4,'Chat Masque',56,'4.jpg','Vous ne savez pas ce quil prepare','Mignon',0),
-      (5,'Chat percher',74,'5.jpg','Big broser waching you','MANGE TON AME',1)
+  (4,'Chat Masque',56,'4.jpg','Vous ne savez pas ce quil prepare','Mignon',0),
+  (5,'Chat percher',74,'5.jpg','Big broser waching you','MANGE TON AME',1),
+  (6,'ChatLine',39,'6.jpg','Si je nes pas mes croquette tu vas au goulag','MANGE TON AME',1)    
   ;
 
 INSERT INTO panier Values ('clercma',1,1),('clercma',3,1);

@@ -53,6 +53,27 @@ function getPageCategorie(int $page,int $n,$categorie) : array{
 //Pense as gere le cas de multiple ajout avec des triger
 function addPanier(string $name ,int $ref){
   //$req = "INSERT INTO panier Values ($name,$ref,0)";
+  $nb = 0;
+/*
+  $req = "Select count(*) from panier where name=:name and ref =:ref";
+$prep = ($this->db)->prepare($req);
+
+
+
+  $nb = $prep->execute(array(
+  'name' => $name,
+  'ref' => $ref
+  ));
+*/
+
+  $req = "Select count from panier where name='$name' and ref =$ref";
+$querry = ($this->db)->query($req);
+$nb = $querry->fetch();
+$nb = intval($nb[0]);
+//var_dump($req);
+var_dump($nb);
+
+  if($nb==0){
   $req = "INSERT INTO panier Values(:name,:ref,1)";
 $prep = ($this->db)->prepare($req);
 
@@ -62,8 +83,30 @@ $prep = ($this->db)->prepare($req);
 	'ref' => $ref
 	));
 
+  echo 'DAO CLass 78 INsert ';
+}else{
 
+
+$req = "Update panier SET count = ((Select count from panier where name =:name and ref = :ref)+1) where name =:name and ref =:ref";
+
+$prep = ($this->db)->prepare($req);
+
+
+  $querry = $prep->execute(array(
+  'name' => $name,
+  'ref' => $ref
+  ));
+  var_dump($querry);
+echo 'DAO CLass 87 update ';
+
+
+/*
+  $req = "Update panier SET count = ((Select count from panier where name ='$name' and ref =$ref)+1) where name ='$name' and ref =$ref";
+$querry = ($this->db)->query($req);
+$res = $querry->execute();
+*/
 //echo (" DAO Class l 157 : $req");
+}
 }
 
 function getProduisPanier(string $name):array{

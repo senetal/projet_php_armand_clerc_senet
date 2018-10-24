@@ -31,14 +31,13 @@ function getPage(int $page,int $n) : array{
 	'page' => $page,
 	'n' => $n
 	));
-
   $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
   return $tab;
 }
 
 //As reaiore avec un perpare
 function getPageCategorie(int $page,int $n,$categorie) : array{
-  $req = "SELECT * from Products WHERE category=':category' ORDER BY ref LIMIT :page,:n";
+  $req = "SELECT * from Products WHERE category=:category ORDER BY ref LIMIT :page,:n";
   $querry =($this->db)->prepare($req);
   $querry->execute(array(
   'page' => $page,

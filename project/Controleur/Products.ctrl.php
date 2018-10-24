@@ -25,7 +25,8 @@ $nb = $page*$limitPerPage;
 
 if(isset($_GET['category'])){
   $category = $_GET['category'];
-  $products = $dao->getPage($nb,$limitPerPage,$category);
+  echo $category." ".$nb." ".$limitPerPage;
+  $products = $dao->getPageCategorie($nb,$limitPerPage,$category);
 }else{
   $products = $dao->getPage($nb,$limitPerPage);
 };

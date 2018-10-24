@@ -6,14 +6,14 @@
   </head>
   <body>
     <form class="login" action="../Controleur/account.ctrl.php" method="post">
-      <?php if (isset($_GET['err'])) {echo "<p>Login ou mot de passe incorrect.</p>";} ?>
+      <?php if(isset($err)) echo $err; ?>
       <label for="pseudo">Pseudo:</label>
       <input type="text" name="pseudo" value="" maxlength="64" autofocus required><br>
       <label for="password">Mot de passe:</label>
       <input type="password" name="password" value="" maxlength="64" required><br>
       <input type="submit" name="submit" value="Se connecter">
     </form>
-    <form class="new compte" action="index.html" method="post">
+    <form class="new compte" action="createaccount.view.php" method="post">
       <p>Vous n'avez pas de compte ?</p>
       <input type="submit" name="submit" value="Créer un compte">
     </form>

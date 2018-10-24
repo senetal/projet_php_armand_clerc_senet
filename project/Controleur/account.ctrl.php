@@ -4,6 +4,7 @@ session_start();
   require_once('../Modele/DAO.class.php');
 
   $dao=new DAO();
+  $err="";
 
   foreach($_POST as $key => $value){
     switch($key) {
@@ -30,7 +31,8 @@ session_start();
 
   if (isset($password2)) {
     if ($password!=$password2){
-      header('Location : ../Vue/createaccount.view.php&err=badpw');
+      $err="<p>Les mots de passe sont différents, veuillez réessayer.</p>";
+      include('../Vue/createaccount.view.php');
       exit();
     } else {
       $_SESSION['user']=$dao->createUser($pseudo,$password,$mail,$tel,$address);
@@ -40,8 +42,9 @@ session_start();
       if ($usr!=NULL){
         $_SESSION['user']=$usr;
       } else {
-        header('Location : ../Vue/login.view.php&err=badpw');
-      exit();
+        $err="<p>Mot de passe incorrect, veuillez réessayer.</p>";
+        include('../Vue/login.view.php');
+        exit();
       }
   }
 

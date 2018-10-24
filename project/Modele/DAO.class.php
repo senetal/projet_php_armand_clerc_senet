@@ -129,15 +129,22 @@ $querry->execute(array(
 $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
 
 var_dump($tab);
-
+string $name,string $password,string $mail,string $tel,string $address){
+    $this->name=$name;
+    $this->password=$password;
+    $this->mail=$mail;
+    $this->tel=$tel;
+    $this->address=$address;
 */
 }
 
-function getUser(string $name, string $password):User{
+function getUser(string $name, string $password){
 	$req="SELECT * from user where name='$name' and password='$password'";
 	$query = ($this->db)->query($req);
 	$tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'User');
-return $tab[0];
+  if (isset($tab[0]))
+      return $tab[0];
+  return NULL;
 }
 
   public function createUser(string $pseudo, string $password, string $mail, string $tel, string $address):User{

@@ -1,5 +1,4 @@
 <?php
-
 require_once('User.class.php');
 
 $dao = new DAO();
@@ -22,30 +21,40 @@ function __construct() {
 
 //////////////////////////////////////////////////////////////
 
-// affichage des produits non triés
-function getPage(int $page,int $n) : array{
-  //$req = "SELECT * from Products ORDER BY ref LIMIT $page,$n";
-  //$querry = ($this->db)->query($req);
-  $req = "SELECT * from Products ORDER BY ref LIMIT :page,:n";
-  $querry =($this->db)->prepare($req);
- $querry->execute(array(
-	'page' => htmlspecialchars($page),
-	'n' => htmlspecialchars($n)
-	));
-  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
+// tableau des catégories
+function getCategory(){
+  $req = "SELECT * from category";
+  $query =($this->db)->query($req);
+  $tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
   return $tab;
 }
 
-// affichage des produits triés par catégorie
+// tableau des produits non triés
+function getPage(int $page,int $n) : array{
+  //$req = "SELECT * from Products ORDER BY ref LIMIT $page,$n";
+  //$query = ($this->db)->query($req);
+  $req = "SELECT * from Products ORDER BY ref LIMIT :page,:n";
+  $query =($this->db)->prepare($req);
+ $query->execute(array(
+	'page' => htmlspecialchars($page),
+	'n' => htmlspecialchars($n)
+	));
+  $tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
+  return $tab;
+}
+
+// tableau des produits triés par catégorie
 function getPageCategorie(int $page,int $n,$categorie) : array{
   $req = "SELECT * from Products WHERE category=:category ORDER BY ref LIMIT :page,:n";
-  $querry =($this->db)->prepare($req);
- $querry->execute(array(
+  $query =($this->db)->prepare($req);
+ $query->execute(array(
   'page' => htmlspecialchars($page),
   'n' => $n,
   'category' =>$categorie
   ));
-  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
+  var_dump($query);
+  $tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
+  var_dump($tab);
   return $tab;
 }
 
@@ -68,8 +77,8 @@ function addPanier(string $name ,int $ref){
   */
 
   $req = "Select count from panier where name='$name' and ref =$ref";
-  $querry = ($this->db)->query($req);
-  $nb = $querry->fetch();
+  $query = ($this->db)->query($req);
+  $nb = $query->fetch();
   $nb = intval($nb[0]);
   //var_dump($req);
   var_dump($nb);
@@ -79,7 +88,7 @@ function addPanier(string $name ,int $ref){
     $prep = ($this->db)->prepare($req);
 
 
-  $querry = $prep->execute(array(
+  $query = $prep->execute(array(
 	'name' => htmlspecialchars($name),
 	'ref' => htmlspecialchars($ref)
 	));
@@ -92,7 +101,7 @@ function addPanier(string $name ,int $ref){
     $prep = ($this->db)->prepare($req);
 
 
-  $querry = $prep->execute(array(
+  $query = $prep->execute(array(
   'name' => htmlspecialchars($name),
   'ref' => htmlspecialchars($ref)
   ));
@@ -105,14 +114,14 @@ function getProduisPanier(string $name):array{
 
 
 $req ="SELECT p.*,q.count from products as p , panier as q WHERE q.name =:name and q.ref = p.ref";
-//$querry = ($this->db)->query($req);
-$querry =($this->db)->prepare($req);
+//$query = ($this->db)->query($req);
+$query =($this->db)->prepare($req);
 
-$querry->execute(array(
+$query->execute(array(
 'name' => htmlspecialchars($name)
 ));
 
-  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
+  $tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
 
 return $tab;
 
@@ -124,11 +133,11 @@ function removeProduisPanier(string $name){
   $prep = ($this->db)->prepare($req);
 
 
-    $querry = $prep->execute(array(
+    $query = $prep->execute(array(
     'name' => htmlspecialchars($name)
     ));
 
-    return $querry;
+    return $query;
 
 }
 

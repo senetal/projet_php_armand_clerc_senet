@@ -25,7 +25,6 @@ $nb = $page*$limitPerPage;
 
 if(isset($_GET['category'])){
   $category = $_GET['category'];
-  echo $category." ".$nb." ".$limitPerPage;
   $products = $dao->getPageCategorie($nb,$limitPerPage,$category);
 }else{
   $products = $dao->getPage($nb,$limitPerPage);
@@ -39,6 +38,8 @@ if(isset($_GET['add'])){
 
   $dao->addPanier($name,$ref);
 }
+
+$category = $dao->getCategory();
 
 include '../Vue/Article.view.php';
 ?>

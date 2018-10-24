@@ -45,6 +45,5 @@ session_start();
       }
   }
 
-
   include('../Vue/account.view.php');
 ?>

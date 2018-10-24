@@ -40,7 +40,7 @@ function getPageCategorie(int $page,int $n,$categorie) : array{
   $req = "SELECT * from Products WHERE category=':category' ORDER BY ref LIMIT :page,:n";
   $querry =($this->db)->prepare($req);
  $querry->execute(array(
-  'page' => $page,
+  'page' => htmlspecialchars($page),
   'n' => $n,
   'category' =>$categorie
   ));
@@ -79,8 +79,8 @@ $prep = ($this->db)->prepare($req);
 
 
   $querry = $prep->execute(array(
-	'name' => $name,
-	'ref' => $ref
+	'name' => htmlspecialchars($name),
+	'ref' => htmlspecialchars($ref)
 	));
 
 }else{
@@ -92,8 +92,8 @@ $prep = ($this->db)->prepare($req);
 
 
   $querry = $prep->execute(array(
-  'name' => $name,
-  'ref' => $ref
+  'name' => htmlspecialchars($name),
+  'ref' => htmlspecialchars($ref)
   ));
 
 }
@@ -108,7 +108,7 @@ $req ="SELECT p.*,q.count from products as p , panier as q WHERE q.name =:name a
 $querry =($this->db)->prepare($req);
 
 $querry->execute(array(
-'name' => $name,
+'name' => htmlspecialchars($name)
 ));
 
 $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');

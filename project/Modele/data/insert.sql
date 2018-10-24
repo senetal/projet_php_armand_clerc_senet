@@ -20,7 +20,19 @@ insert into products values
   (3,'Big cat',74,'3.jpg','US cat','Fat',0),
   (4,'Chat Masque',56,'4.jpg','Vous ne savez pas ce quil prepare','Mignon',0),
   (5,'Chat percher',74,'5.jpg','Big broser waching you','MANGE TON AME',1),
-  (6,'ChatLine',39,'6.jpg','Si je nes pas mes croquette tu vas au goulag','MANGE TON AME',1)    
+  (6,'ChatLine',39,'6.jpg','Si je nes pas mes croquette tu vas au goulag','MANGE TON AME',1)
   ;
 
 INSERT INTO panier Values ('clercma',1,1),('clercma',3,1);
+
+--chat dolf hitler
+--chat pito
+-- chat kira
+--chat peau
+--charbitre (#splatoon)
+--chacripan,chaglam,chaffreux (pokemon)
+--chat rlatan
+--chao zedong
+--chtaline
+--chaprichtiif(isset($_SESSION['user'])){
+--chi chat

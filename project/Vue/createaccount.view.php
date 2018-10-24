@@ -6,7 +6,7 @@
   </head>
   <body>
     <form class="createaccount" action="../Controleur/account.ctrl.php" method="post">
-      <?php if (isset($_GET['err'])) {echo "<p>Les mots de passe sont différents, veuillez réessayer</p>";} ?>
+      <?php if(isset($err)) echo $err; ?>
       <label for="pseudo">Pseudo:</label>
       <input type="text" name="pseudo" value="" maxlength="64" autofocus required><br>
       <label for="password">Mot de passe:</label>
@@ -22,5 +22,7 @@
 
       <input type="submit" name="submit" value="Creer le compte">
     </form>
+    <p>Vous possedez un compte ? Connectez-vous ici :</p>
+    <a href='login.view.php'><button type="button">Se connecter</button></a>
   </body>
 </html>

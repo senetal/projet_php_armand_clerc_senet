@@ -1,8 +1,19 @@
 <?php
-session_start();
+
 include '../Modele/DAO.class.php';
 include '../Modele/Products.class.php';
-$name = 'clercma';
+
+session_start();
+
+if(isset($_SESSION['user'])){
+  $user = $_SESSION['user'];
+}
+
+if(isset($user)){
+  $name = $user->name;
+}else{
+  $name = "none";
+}
 
 
 if(isset($_GET['valide'])){

@@ -132,11 +132,13 @@ function removeProduisPanier(string $name){
 
 }
 
-function getUser(string $name, string $password):User{
+function getUser(string $name, string $password){
 	$req="SELECT * from user where name='$name' and password='$password'";
 	$query = ($this->db)->query($req);
 	$tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'User');
+  if (isset($tab[0]))
   return $tab[0];
+  return NULL;
 }
 
   public function createUser(string $pseudo, string $password, string $mail, string $tel, string $address):User{

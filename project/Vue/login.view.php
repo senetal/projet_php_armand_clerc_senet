@@ -14,9 +14,7 @@
       <input type="password" name="password" value="" maxlength="64" required><br>
       <input type="submit" name="submit" value="Se connecter">
     </form>
-    <form class="new compte" action="createaccount.view.php" method="post">
-      <p>Vous n'avez pas de compte ?</p>
-      <input type="submit" name="submit" value="Créer un compte">
-    </form>
+    <p>Pas de compte ? Creez-en un ici :</p>
+    <a href='createaccount.view.php'><button type="button">Creer un compte</button></a>
   </body>
 </html>

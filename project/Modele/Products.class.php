@@ -1,5 +1,4 @@
 <?php
-
 class Products{
 public $ref;
 public $name;
@@ -8,17 +7,13 @@ public $image;
 public $description;
 public $category;
 public $address;
-
 }
 
+?>
 
-
- ?>
-
- <?php
-
+<?php
  class ProductsPanier extends Products{
   public $count;
  }
 
-  ?>
+?>

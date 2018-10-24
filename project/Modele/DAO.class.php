@@ -25,21 +25,23 @@ function __construct() {
 function getPage(int $page,int $n) : array{
   //$req = "SELECT * from Products ORDER BY ref LIMIT $page,$n";
   //$querry = ($this->db)->query($req);
-$req = "SELECT * from Products ORDER BY ref LIMIT :page,:n";
+  $req = "SELECT * from Products ORDER BY ref LIMIT :page,:n";
   $querry =($this->db)->prepare($req);
- $querry->execute(array(
+  $querry->execute(array(
 	'page' => $page,
 	'n' => $n
 	));
 
   $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
   return $tab;
+  
 }
+
 //As reaiore avec un perpare
 function getPageCategorie(int $page,int $n,$categorie) : array{
   $req = "SELECT * from Products WHERE category=':category' ORDER BY ref LIMIT :page,:n";
   $querry =($this->db)->prepare($req);
- $querry->execute(array(
+  $querry->execute(array(
   'page' => $page,
   'n' => $n,
   'category' =>$categorie
@@ -54,59 +56,59 @@ function getPageCategorie(int $page,int $n,$categorie) : array{
 function addPanier(string $name ,int $ref){
   //$req = "INSERT INTO panier Values ($name,$ref,0)";
   $nb = 0;
-/*
-  $req = "Select count(*) from panier where name=:name and ref =:ref";
-$prep = ($this->db)->prepare($req);
+  /*
+    $req = "Select count(*) from panier where name=:name and ref =:ref";
+  $prep = ($this->db)->prepare($req);
 
 
 
-  $nb = $prep->execute(array(
-  'name' => $name,
-  'ref' => $ref
-  ));
-*/
+    $nb = $prep->execute(array(
+    'name' => $name,
+    'ref' => $ref
+    ));
+  */
 
   $req = "Select count from panier where name='$name' and ref =$ref";
-$querry = ($this->db)->query($req);
-$nb = $querry->fetch();
-$nb = intval($nb[0]);
-//var_dump($req);
-var_dump($nb);
+  $querry = ($this->db)->query($req);
+  $nb = $querry->fetch();
+  $nb = intval($nb[0]);
+  //var_dump($req);
+  var_dump($nb);
 
   if($nb==0){
-  $req = "INSERT INTO panier Values(:name,:ref,1)";
-$prep = ($this->db)->prepare($req);
+    $req = "INSERT INTO panier Values(:name,:ref,1)";
+    $prep = ($this->db)->prepare($req);
 
 
-  $querry = $prep->execute(array(
-	'name' => $name,
-	'ref' => $ref
-	));
+    $querry = $prep->execute(array(
+  	'name' => $name,
+  	'ref' => $ref
+  	));
 
-  echo 'DAO CLass 78 INsert ';
-}else{
-
-
-$req = "Update panier SET count = ((Select count from panier where name =:name and ref = :ref)+1) where name =:name and ref =:ref";
-
-$prep = ($this->db)->prepare($req);
+    echo 'DAO CLass 78 INsert ';
+  }else{
 
 
-  $querry = $prep->execute(array(
-  'name' => $name,
-  'ref' => $ref
-  ));
-  var_dump($querry);
-echo 'DAO CLass 87 update ';
+    $req = "Update panier SET count = ((Select count from panier where name =:name and ref = :ref)+1) where name =:name and ref =:ref";
+
+    $prep = ($this->db)->prepare($req);
 
 
-/*
-  $req = "Update panier SET count = ((Select count from panier where name ='$name' and ref =$ref)+1) where name ='$name' and ref =$ref";
-$querry = ($this->db)->query($req);
-$res = $querry->execute();
-*/
-//echo (" DAO Class l 157 : $req");
-}
+    $querry = $prep->execute(array(
+    'name' => $name,
+    'ref' => $ref
+    ));
+    var_dump($querry);
+    echo 'DAO CLass 87 update ';
+
+
+    /*
+      $req = "Update panier SET count = ((Select count from panier where name ='$name' and ref =$ref)+1) where name ='$name' and ref =$ref";
+    $querry = ($this->db)->query($req);
+    $res = $querry->execute();
+    */
+    //echo (" DAO Class l 157 : $req");
+  }
 }
 
 function getProduisPanier(string $name):array{
@@ -116,26 +118,21 @@ function getProduisPanier(string $name):array{
   $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
   return $tab;
 
-/*
-Ne marche pas et ne renvoies pas de valeur
-$req ="SELECT p.*,q.count from products as p , panier as q WHERE q.name =':name' and q.ref = p.ref";
-//$querry = ($this->db)->query($req);
-$querry =($this->db)->prepare($req);
+  /*
+  Ne marche pas et ne renvoies pas de valeur
+  $req ="SELECT p.*,q.count from products as p , panier as q WHERE q.name =':name' and q.ref = p.ref";
+  //$querry = ($this->db)->query($req);
+  $querry =($this->db)->prepare($req);
 
-$querry->execute(array(
-'name' => $name,
-));
+  $querry->execute(array(
+  'name' => $name,
+  ));
 
-$tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
+  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
 
-var_dump($tab);
-string $name,string $password,string $mail,string $tel,string $address){
-    $this->name=$name;
-    $this->password=$password;
-    $this->mail=$mail;
-    $this->tel=$tel;
-    $this->address=$address;
-*/
+  var_dump($tab);
+
+  */
 }
 
 function getUser(string $name, string $password){

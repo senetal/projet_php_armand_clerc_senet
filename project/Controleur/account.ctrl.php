@@ -3,6 +3,8 @@ session_start();
   require_once('../Modele/User.class.php');
   require_once('../Modele/DAO.class.php');
 
+  $dao=new DAO();
+
   foreach($_POST as $key => $value){
     switch($key) {
       case "pseudo":
@@ -20,7 +22,7 @@ session_start();
       case "tel":
       $tel=$value;
       break;
-      case "password":
+      case "address":
       $address=$value;
       break;
     }
@@ -31,10 +33,10 @@ session_start();
       header('Location : ../Vue/createaccount.view.php&err=badpw');
       exit();
     } else {
-      $_SESSION['user']=createUser($name,$password,$mail,$tel,$address);
+      $_SESSION['user']=$dao->createUser($pseudo,$password,$mail,$tel,$address);
     }
   } else {
-      $usr=$dao->getUser($name,$password);
+      $usr=$dao->getUser($pseudo,$password);
       if ($usr!=NULL){
         $_SESSION['user']=$usr;
       } else {

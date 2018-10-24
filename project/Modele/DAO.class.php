@@ -28,8 +28,8 @@ function getPage(int $page,int $n) : array{
 $req = "SELECT * from Products ORDER BY ref LIMIT :page,:n";
   $querry =($this->db)->prepare($req);
  $querry->execute(array(
-	'page' => $page,
-	'n' => $n
+	'page' => htmlspecialchars($page),
+	'n' => htmlspecialchars($n)
 	));
 
   $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
@@ -83,7 +83,6 @@ $prep = ($this->db)->prepare($req);
 	'ref' => $ref
 	));
 
-  echo 'DAO CLass 78 INsert ';
 }else{
 
 
@@ -96,29 +95,15 @@ $prep = ($this->db)->prepare($req);
   'name' => $name,
   'ref' => $ref
   ));
-  var_dump($querry);
-echo 'DAO CLass 87 update ';
 
-
-/*
-  $req = "Update panier SET count = ((Select count from panier where name ='$name' and ref =$ref)+1) where name ='$name' and ref =$ref";
-$querry = ($this->db)->query($req);
-$res = $querry->execute();
-*/
-//echo (" DAO Class l 157 : $req");
 }
 }
 
 function getProduisPanier(string $name):array{
 
-  $req ="SELECT p.*,q.count from products as p , panier as q WHERE q.name ='$name' and q.ref = p.ref";
-  $querry = ($this->db)->query($req);
-  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
-  return $tab;
 
-/*
-Ne marche pas et ne renvoies pas de valeur
-$req ="SELECT p.*,q.count from products as p , panier as q WHERE q.name =':name' and q.ref = p.ref";
+
+$req ="SELECT p.*,q.count from products as p , panier as q WHERE q.name =:name and q.ref = p.ref";
 //$querry = ($this->db)->query($req);
 $querry =($this->db)->prepare($req);
 
@@ -128,9 +113,8 @@ $querry->execute(array(
 
 $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
 
-var_dump($tab);
+return $tab;
 
-*/
 }
 
 
@@ -140,7 +124,7 @@ function removeProduisPanier(string $name){
 
 
     $querry = $prep->execute(array(
-    'name' => $name
+    'name' => htmlspecialchars($name)
     ));
 
     return $querry;

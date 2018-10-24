@@ -5,7 +5,9 @@ include '../Modele/Products.class.php';
 $name = 'clercma';
 
 
-//if($_GET[])
+if(isset($_GET['valide'])){
+  $command = $dao->removeProduisPanier($name);
+}
 $tab = $dao->getProduisPanier($name);
 
 //var_dump($tab);

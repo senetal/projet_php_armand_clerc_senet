@@ -27,22 +27,21 @@ function getPage(int $page,int $n) : array{
   //$querry = ($this->db)->query($req);
   $req = "SELECT * from Products ORDER BY ref LIMIT :page,:n";
   $querry =($this->db)->prepare($req);
-  $querry->execute(array(
-	'page' => $page,
-	'n' => $n
+ $querry->execute(array(
+	'page' => htmlspecialchars($page),
+	'n' => htmlspecialchars($n)
 	));
 
   $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
   return $tab;
-  
 }
 
 //As reaiore avec un perpare
 function getPageCategorie(int $page,int $n,$categorie) : array{
   $req = "SELECT * from Products WHERE category=':category' ORDER BY ref LIMIT :page,:n";
   $querry =($this->db)->prepare($req);
-  $querry->execute(array(
-  'page' => $page,
+ $querry->execute(array(
+  'page' => htmlspecialchars($page),
   'n' => $n,
   'category' =>$categorie
   ));
@@ -80,13 +79,12 @@ function addPanier(string $name ,int $ref){
     $prep = ($this->db)->prepare($req);
 
 
-    $querry = $prep->execute(array(
-  	'name' => $name,
-  	'ref' => $ref
-  	));
+  $querry = $prep->execute(array(
+	'name' => htmlspecialchars($name),
+	'ref' => htmlspecialchars($ref)
+	));
 
-    echo 'DAO CLass 78 INsert ';
-  }else{
+}else{
 
 
     $req = "Update panier SET count = ((Select count from panier where name =:name and ref = :ref)+1) where name =:name and ref =:ref";
@@ -94,54 +92,51 @@ function addPanier(string $name ,int $ref){
     $prep = ($this->db)->prepare($req);
 
 
-    $querry = $prep->execute(array(
-    'name' => $name,
-    'ref' => $ref
-    ));
-    var_dump($querry);
-    echo 'DAO CLass 87 update ';
+  $querry = $prep->execute(array(
+  'name' => htmlspecialchars($name),
+  'ref' => htmlspecialchars($ref)
+  ));
 
-
-    /*
-      $req = "Update panier SET count = ((Select count from panier where name ='$name' and ref =$ref)+1) where name ='$name' and ref =$ref";
-    $querry = ($this->db)->query($req);
-    $res = $querry->execute();
-    */
-    //echo (" DAO Class l 157 : $req");
-  }
+}
 }
 
 function getProduisPanier(string $name):array{
 
-  $req ="SELECT p.*,q.count from products as p , panier as q WHERE q.name ='$name' and q.ref = p.ref";
-  $querry = ($this->db)->query($req);
-  $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
-  return $tab;
 
-  /*
-  Ne marche pas et ne renvoies pas de valeur
-  $req ="SELECT p.*,q.count from products as p , panier as q WHERE q.name =':name' and q.ref = p.ref";
-  //$querry = ($this->db)->query($req);
-  $querry =($this->db)->prepare($req);
 
-  $querry->execute(array(
-  'name' => $name,
-  ));
+$req ="SELECT p.*,q.count from products as p , panier as q WHERE q.name =:name and q.ref = p.ref";
+//$querry = ($this->db)->query($req);
+$querry =($this->db)->prepare($req);
+
+$querry->execute(array(
+'name' => htmlspecialchars($name)
+));
 
   $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
 
-  var_dump($tab);
+return $tab;
 
-  */
 }
 
-function getUser(string $name, string $password){
+
+function removeProduisPanier(string $name){
+  $req = "DELETE FROM panier WHERE name = :name";
+  $prep = ($this->db)->prepare($req);
+
+
+    $querry = $prep->execute(array(
+    'name' => htmlspecialchars($name)
+    ));
+
+    return $querry;
+
+}
+
+function getUser(string $name, string $password):User{
 	$req="SELECT * from user where name='$name' and password='$password'";
 	$query = ($this->db)->query($req);
 	$tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'User');
-  if (isset($tab[0]))
-      return $tab[0];
-  return NULL;
+  return $tab[0];
 }
 
   public function createUser(string $pseudo, string $password, string $mail, string $tel, string $address):User{

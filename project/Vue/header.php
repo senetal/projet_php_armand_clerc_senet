@@ -11,9 +11,9 @@
         <li><a href="../Controleur/Order.ctrl.php">Panier</a></li>
         <?php $name = 'toto'; ?>
         <?php if (isset($name)): ?>
-        <li style="float:right"><div class="refConnexion"><a href="../Controleur/account.ctrl.php"><?php echo $name; ?></a></div></li>
+        <li style="float:right"><div class="refConnexion"><a href="../Vue/login.view.php"><?php echo $name; ?></a></div></li>
         <?php else: ?>
-        <li style="float:right"><div class="refConnexion"><a href="../Controleur/account.ctrl.php">Connexion</a></div></li>
+        <li style="float:right"><div class="refConnexion"><a href="../Vue/login.view.php">Connexion</a></div></li>
         <?php endif ?>
       </ul>
     </div>

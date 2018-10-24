@@ -12,6 +12,17 @@ $sumCount = 0;
   </head>
   <body>
     <?php include('../Vue/header.php')?>
+
+<?php if(isset($command)): ?>
+
+<?php if($command): ?>
+<h2 class="sucesse">Commande passe avec succe</h2>
+<?php else :?>
+<h2 class="fail">Erreur lors de la commande </h2>
+<?php endif ?>
+
+<?php endif?>
+
 <h1>Facture</h1>
 
 <div class="achat">

@@ -133,6 +133,20 @@ var_dump($tab);
 */
 }
 
+
+function removeProduisPanier(string $name){
+  $req = "DELETE FROM panier WHERE name = :name";
+  $prep = ($this->db)->prepare($req);
+
+
+    $querry = $prep->execute(array(
+    'name' => $name
+    ));
+
+    return $querry;
+
+}
+
 function getUser(string $name, string $password):User{
 	$req="select * from user where name=$name and password=$password";
 	$query = ($this->db)->query($req);

@@ -40,6 +40,7 @@ function getPage(int $page,int $n) : array{
 
   $tab = $querry->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Products');
   return $tab;
+  
 }
 
 //As reaiore avec un perpare
@@ -189,11 +190,13 @@ function removeProduisPanier(string $name){
 >>>>>>> daafb31992d81e5bad648bb54f2914d15a963ed3
 }
 
-function getUser(string $name, string $password):User{
+function getUser(string $name, string $password){
 	$req="SELECT * from user where name='$name' and password='$password'";
 	$query = ($this->db)->query($req);
 	$tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'User');
-  return $tab[0];
+  if (isset($tab[0]))
+      return $tab[0];
+  return NULL;
 }
 
   public function createUser(string $pseudo, string $password, string $mail, string $tel, string $address):User{

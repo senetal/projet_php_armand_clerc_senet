@@ -135,8 +135,8 @@ function getProduisPanier(string $name):array{
 }
 
 function getUser(string $name, string $password):User{
-	$req="select * from user where name=':name' and password=':password'";
-	$query = ($this->db)->prepare($req);
+	$req="SELECT * from user where name='$name' and password='$password'";
+	$query = ($this->db)->query($req);
 	$tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'User');
   return $tab[0];
 }

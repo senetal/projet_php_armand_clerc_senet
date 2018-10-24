@@ -34,4 +34,5 @@ INSERT INTO panier Values ('clercma',1,1),('clercma',3,1);
 --chat rlatan
 --chao zedong
 --chtaline
---chaprichti
+--chaprichtiif(isset($_SESSION['user'])){
+--chi chat

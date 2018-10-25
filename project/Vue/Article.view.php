@@ -10,15 +10,21 @@
     <?php include('../Vue/header.php')?>
   </header>
   <fieldset>
-    <div class="choix_categorie">
+    <div class="tri">
       <form class="bouton" action="Products.ctrl.php" method="get">
-        <select class="" name="">
-          <option value="">Chosir une catégorie</option>"
+        <select class="choix_categorie" name="test1">
+          <option value="">Toutes catégories</option>
           <?php foreach ($category as $b){
             if ($b->name != ""){
               echo "<option value=\"\">$b->name</option>";
             }
           }?>
+        </select>
+        <select class="choix_prix" name="test2">
+          <option value="">Tous les prix</option>
+          <option value="">Prix croissants</option>
+          <option value="">Prix décroissants</option>
+          <option value="">Intervale de prix</option>
         </select>
         <input type="submit" name="sbumit" value="Recherche">
       </form>

@@ -5,6 +5,7 @@
     <title>Creer un compte</title>
   </head>
   <body>
+    <?php include('header.php'); ?><br>
     <form class="createaccount" action="../Controleur/account.ctrl.php" method="post">
       <?php if(isset($err)) echo $err; ?>
       <label for="pseudo">Pseudo:</label>

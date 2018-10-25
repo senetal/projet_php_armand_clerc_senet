@@ -8,7 +8,7 @@ session_start();
 $imagePath = "../Modele/data/images/";
 
 $limitPerPage = 3;
-$max = 6;
+$max = 27;
 
 if(isset($_SESSION['user'])){
   $user = $_SESSION['user'];
@@ -59,10 +59,15 @@ else{
 
 //Gestion de l'ajout au panier
 if(isset($_GET['add'])){
+
+  if(isset($name)){
   $ref = intval($_GET['add']);
   //Pour les test
 
   $dao->addPanier($name,$ref);
+}else{
+$err = "Vous devez dabore etre connecte avant de rajoute au panier ";
+}
 }
 
 $category = $dao->getCategory();

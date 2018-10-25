@@ -23,7 +23,7 @@
         <select class="choix_prix" name="choix_prix">
           <option value="tous">Tous les prix</option>
           <option value="croissant">Prix croissants</option>
-          <option value="décroissant">Prix décroissants</option>
+          <option value="decroissant">Prix décroissants</option>
         </select>
         <input type="submit" name="submit" value="Recherche">
       </form>

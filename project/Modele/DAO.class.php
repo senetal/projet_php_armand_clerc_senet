@@ -36,8 +36,8 @@ function getPage(int $page,int $n,$triprix) : array{
   if ($triprix == "croissant"){
     $req = "SELECT * from Products ORDER BY price LIMIT :page,:n";
   }
-  elseif ($triprix == "décroissant") {
-    $req = "SELECT * from Products ORDER BY desc price LIMIT :page,:n";
+  elseif ($triprix == "decroissant") {
+    $req = "SELECT * from Products ORDER BY price desc LIMIT :page,:n";
   }
   else{
     $req = "SELECT * from Products ORDER BY ref LIMIT :page,:n";
@@ -53,6 +53,15 @@ function getPage(int $page,int $n,$triprix) : array{
 
 // tableau des produits triés par catégorie
 function getPageCategorie(int $page,int $n,$categorie,$triprix) : array{
+  if ($triprix == "croissant"){
+    $req = "SELECT * from Products ORDER BY price LIMIT :page,:n";
+  }
+  elseif ($triprix == "decroissant") {
+    $req = "SELECT * from Products ORDER BY price desc LIMIT :page,:n";
+  }
+  else{
+    $req = "SELECT * from Products ORDER BY ref LIMIT :page,:n";
+  }
   $req = "SELECT * from Products WHERE category=:category ORDER BY ref LIMIT :page,:n";
   $query =($this->db)->prepare($req);
   $query->execute(array(

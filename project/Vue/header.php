@@ -33,4 +33,3 @@ if(isset($user)){
     </div>
   </nav>
 </div>
-<h1>VIVE LA PIPE !!!</h1>

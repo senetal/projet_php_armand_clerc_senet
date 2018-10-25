@@ -16,17 +16,22 @@
 <?php endif; ?>
 
   <fieldset>
-    <div class="choix_categorie">
+    <div class="tri">
       <form class="bouton" action="Products.ctrl.php" method="get">
-        <select class="" name="">
-          <option value="">Chosir une catégorie</option>"
+        <select class="choix_categorie" name="choix_categorie">
+          <option value="Toutes catégories">Toutes catégories</option>
           <?php foreach ($category as $b){
             if ($b->name != ""){
-              echo "<option value=\"\">$b->name</option>";
+              echo "<option value=\"$b->name\">$b->name</option>";
             }
           }?>
         </select>
-        <input type="submit" name="sbumit" value="Recherche">
+        <select class="choix_prix" name="choix_prix">
+          <option value="tous">Tous les prix</option>
+          <option value="croissant">Prix croissants</option>
+          <option value="decroissant">Prix décroissants</option>
+        </select>
+        <input type="submit" name="submit" value="Recherche">
       </form>
     </div>
   </fieldset>
@@ -49,18 +54,15 @@
         </form>
       </article>
     <?php endforeach?>
-
   </div>
 
   <br>
   <br>
 
   <div class="arrow">
-
     <a href=<?php echo ("\"Products.ctrl.php?page=".($page-1))."\"" ?> > <img src="../Modele/data/images/left.png" alt="LEFT"> </a>
     <p> <?php echo $page ?> </p>
     <a href=<?php echo ("\"Products.ctrl.php?page=".($page+1))."\"" ?> > <img src="../Modele/data/images/right.png" alt="right"> </a>
-
   </div>
 </body>
 </html>

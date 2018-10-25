@@ -30,12 +30,20 @@ function getCategory(){
 }
 
 // tableau des produits non triés
-function getPage(int $page,int $n) : array{
+function getPage(int $page,int $n,$triprix) : array{
   //$req = "SELECT * from Products ORDER BY ref LIMIT $page,$n";
   //$query = ($this->db)->query($req);
-  $req = "SELECT * from Products ORDER BY ref LIMIT :page,:n";
+  if ($triprix == "croissant"){
+    $req = "SELECT * from Products ORDER BY price LIMIT :page,:n";
+  }
+  elseif ($triprix == "decroissant") {
+    $req = "SELECT * from Products ORDER BY price desc LIMIT :page,:n";
+  }
+  else{
+    $req = "SELECT * from Products ORDER BY ref LIMIT :page,:n";
+  }
   $query =($this->db)->prepare($req);
- $query->execute(array(
+  $query->execute(array(
 	'page' => htmlspecialchars($page),
 	'n' => htmlspecialchars($n)
 	));
@@ -44,10 +52,19 @@ function getPage(int $page,int $n) : array{
 }
 
 // tableau des produits triés par catégorie
-function getPageCategorie(int $page,int $n,$categorie) : array{
+function getPageCategorie(int $page,int $n,$categorie,$triprix) : array{
+  if ($triprix == "croissant"){
+    $req = "SELECT * from Products ORDER BY price LIMIT :page,:n";
+  }
+  elseif ($triprix == "decroissant") {
+    $req = "SELECT * from Products ORDER BY price desc LIMIT :page,:n";
+  }
+  else{
+    $req = "SELECT * from Products ORDER BY ref LIMIT :page,:n";
+  }
   $req = "SELECT * from Products WHERE category=:category ORDER BY ref LIMIT :page,:n";
   $query =($this->db)->prepare($req);
- $query->execute(array(
+  $query->execute(array(
   'page' => htmlspecialchars($page),
   'n' => $n,
   'category' =>$categorie
@@ -148,6 +165,13 @@ function getUser(string $name, string $password){
   if (isset($tab[0]))
   return $tab[0];
   return NULL;
+}
+
+function userAlreadyExists(string $name):bool{
+	$req="SELECT * from user where name='$name'";
+	$query = ($this->db)->query($req);
+	$tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'User');
+  return isset($tab[0]);
 }
 
   public function createUser(string $pseudo, string $password, string $mail, string $tel, string $address):User{

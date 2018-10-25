@@ -54,6 +54,7 @@ if(isset($_GET['choix_categorie'])){
   }
 }
 else{
+  $category = "Toutes catégories";
   $products = $dao->getPage($nb,$limitPerPage,$triprix);
 };
 

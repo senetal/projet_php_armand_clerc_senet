@@ -15,7 +15,6 @@ if(isset($_SESSION['user'])){
 }
 
 //Recupere le nom de la perssone
-
 if(isset($user)){
   $name = $user->name;
 }
@@ -33,14 +32,29 @@ if($page<0){
   $page = ($max/$limitPerPage)-1;
 }
 
+//gestion des tris par prix
+if (isset($_GET['choix_prix'])) {
+  $triprix = $_GET['choix_prix'];
+}
+else{
+  $triprix = "tous";
+}
+
 //cb as aficher
 $nb = $page*$limitPerPage;
 
-if(isset($_GET['category'])){
-  $category = $_GET['category'];
-  $products = $dao->getPageCategorie($nb,$limitPerPage,$category);
-}else{
-  $products = $dao->getPage($nb,$limitPerPage);
+
+//gestion des tris par catégories
+if(isset($_GET['choix_categorie'])){
+  $category = $_GET['choix_categorie'];
+  if ($category == "Toutes catégories"){
+    $products = $dao->getPage($nb,$limitPerPage,$triprix);
+  }else{
+    $products = $dao->getPageCategorie($nb,$limitPerPage,$category,$triprix);
+  }
+}
+else{
+  $products = $dao->getPage($nb,$limitPerPage,$triprix);
 };
 
 //Gestion de l'ajout au panier
@@ -52,6 +66,7 @@ if(isset($_GET['add'])){
 }
 
 $category = $dao->getCategory();
+
 
 include '../Vue/Article.view.php';
 ?>

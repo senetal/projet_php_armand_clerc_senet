@@ -12,21 +12,20 @@
   <fieldset>
     <div class="tri">
       <form class="bouton" action="Products.ctrl.php" method="get">
-        <select class="choix_categorie" name="test1">
-          <option value="">Toutes catégories</option>
+        <select class="choix_categorie" name="choix_categorie">
+          <option value="Toutes catégories">Toutes catégories</option>
           <?php foreach ($category as $b){
             if ($b->name != ""){
-              echo "<option value=\"\">$b->name</option>";
+              echo "<option value=\"$b->name\">$b->name</option>";
             }
           }?>
         </select>
-        <select class="choix_prix" name="test2">
-          <option value="">Tous les prix</option>
-          <option value="">Prix croissants</option>
-          <option value="">Prix décroissants</option>
-          <option value="">Intervale de prix</option>
+        <select class="choix_prix" name="choix_prix">
+          <option value="tous">Tous les prix</option>
+          <option value="croissant">Prix croissants</option>
+          <option value="décroissant">Prix décroissants</option>
         </select>
-        <input type="submit" name="sbumit" value="Recherche">
+        <input type="submit" name="submit" value="Recherche">
       </form>
     </div>
   </fieldset>
@@ -49,18 +48,15 @@
         </form>
       </article>
     <?php endforeach?>
-
   </div>
 
   <br>
   <br>
 
   <div class="arrow">
-
     <a href=<?php echo ("\"Products.ctrl.php?page=".($page-1))."\"" ?> > <img src="../Modele/data/images/left.png" alt="LEFT"> </a>
     <p> <?php echo $page ?> </p>
     <a href=<?php echo ("\"Products.ctrl.php?page=".($page+1))."\"" ?> > <img src="../Modele/data/images/right.png" alt="right"> </a>
-
   </div>
 </body>
 </html>

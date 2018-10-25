@@ -6,7 +6,6 @@ if (session_status() == PHP_SESSION_NONE) {
     if(isset($_SESSION['user'])){
       $user = $_SESSION['user'];
     }
-
 }
 
 if(isset($user)){
@@ -26,7 +25,7 @@ if(isset($user)){
         <li><a href="../Controleur/Order.ctrl.php">Panier</a></li>
 
         <?php if (isset($name)): ?>
-        <li style="float:right"><div class="refConnexion"><a href="../Vue/login.view.php"><?php echo $name; ?></a></div></li>
+        <li style="float:right"><div class="refConnexion"><a href="../Vue/account.view.php"><?php echo $name; ?></a></div></li>
         <?php else: ?>
         <li style="float:right"><div class="refConnexion"><a href="../Vue/login.view.php">Connexion</a></div></li>
         <?php endif ?>

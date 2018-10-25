@@ -70,7 +70,7 @@ $err = "Vous devez dabore etre connecte avant de rajoute au panier ";
 }
 }
 
-$category = $dao->getCategory();
+$categories = $dao->getCategory();
 
 
 include '../Vue/Article.view.php';

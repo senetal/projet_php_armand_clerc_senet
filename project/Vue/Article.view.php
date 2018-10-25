@@ -20,7 +20,7 @@
       <form class="bouton" action="Products.ctrl.php" method="get">
         <select class="choix_categorie" name="choix_categorie">
           <option value="Toutes catégories">Toutes catégories</option>
-          <?php foreach ($category as $b){
+          <?php foreach ($categories as $b){
             if ($b->name != ""){
               echo "<option value=\"$b->name\">$b->name</option>";
             }
@@ -60,9 +60,9 @@
   <br>
 
   <div class="arrow">
-    <a href=<?php echo ("\"Products.ctrl.php?page=".($page-1))."\"" ?> > <img src="../Modele/data/images/left.png" alt="LEFT"> </a>
+    <a href=<?php echo ("\"Products.ctrl.php?page=".($page-1))."&choix_categorie=".$category."&choix_prix=".$triprix."\"" ?> > <img src="../Modele/data/images/left.png" alt="LEFT"> </a>
     <p> <?php echo $page ?> </p>
-    <a href=<?php echo ("\"Products.ctrl.php?page=".($page+1))."\"" ?> > <img src="../Modele/data/images/right.png" alt="right"> </a>
+    <a href=<?php echo ("\"Products.ctrl.php?page=".($page+1))."&choix_categorie=".$category."&choix_prix=".$triprix."\"" ?> > <img src="../Modele/data/images/right.png" alt="right"> </a>
   </div>
 </body>
 </html>

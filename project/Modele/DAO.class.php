@@ -154,7 +154,7 @@ function userAlreadyExists(string $name):bool{
 	$req="SELECT * from user where name='$name'";
 	$query = ($this->db)->query($req);
 	$tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'User');
-  return isset(tab[0]);
+  return isset($tab[0]);
 }
 
   public function createUser(string $pseudo, string $password, string $mail, string $tel, string $address):User{

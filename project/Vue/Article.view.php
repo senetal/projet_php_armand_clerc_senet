@@ -8,7 +8,13 @@
 <body>
   <header>
     <?php include('../Vue/header.php')?>
+
   </header>
+
+<?php if(isset($err)): ?>
+<p class="error"><?php echo "$err" ?></p>
+<?php endif; ?>
+
   <fieldset>
     <div class="choix_categorie">
       <form class="bouton" action="Products.ctrl.php" method="get">

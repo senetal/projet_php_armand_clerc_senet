@@ -5,7 +5,11 @@
     <title>Login</title>
   </head>
   <body>
+<<<<<<< HEAD
     <?php include('header.php'); ?><br>
+=======
+        <?php include('../Vue/header.php')?>
+>>>>>>> 5518fb98d030c8a541df4a83cc17ff0f7de3f581
     <form class="login" action="../Controleur/account.ctrl.php" method="post">
       <?php if(isset($err)) echo $err; ?>
       <label for="pseudo">Pseudo:</label>

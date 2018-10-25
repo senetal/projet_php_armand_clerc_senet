@@ -1,4 +1,19 @@
 
+<?php
+require_once('../Modele/User.class.php');
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+    if(isset($_SESSION['user'])){
+      $user = $_SESSION['user'];
+    }
+
+}
+
+if(isset($user)){
+  $name = $user->name;
+}
+
+ ?>
 <link rel="stylesheet" href="../Vue/css/Header.css">
 <div class="header">
   <nav>
@@ -9,7 +24,7 @@
         <li><a href="../Controleur/Products.ctrl.php">Offres</a></li>
         <li><a href="../Controleur/Demandes.ctrl.php">Demandes</a></li>
         <li><a href="../Controleur/Order.ctrl.php">Panier</a></li>
-        <?php $name = 'toto'; ?>
+
         <?php if (isset($name)): ?>
         <li style="float:right"><div class="refConnexion"><a href="../Vue/login.view.php"><?php echo $name; ?></a></div></li>
         <?php else: ?>

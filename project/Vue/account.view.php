@@ -5,6 +5,7 @@
     <title>Compte</title>
   </head>
   <body>
+        <?php include('../Vue/header.php')?>
     <p>temporaire...<p>
   </body>
 </html>

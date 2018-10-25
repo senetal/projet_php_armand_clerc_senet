@@ -18,6 +18,8 @@ if(isset($_SESSION['user'])){
   <body>
     <?php include('../Vue/header.php')?>
 
+    <?php include('../Vue/accountmenu.php') ?>
+
     <div class='account'>
 
       Login :

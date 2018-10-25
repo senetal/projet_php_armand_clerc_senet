@@ -5,7 +5,7 @@
     <title>Login</title>
   </head>
   <body>
-        <?php include('../Vue/header.php')?>
+    <?php include('header.php'); ?><br>
     <form class="login" action="../Controleur/account.ctrl.php" method="post">
       <?php if(isset($err)) echo $err; ?>
       <label for="pseudo">Pseudo:</label>

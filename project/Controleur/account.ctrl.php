@@ -36,6 +36,10 @@
       $err="<p>Les mots de passe sont différents, veuillez réessayer.</p>";
       include('../Vue/createaccount.view.php');
       exit();
+    } else if ($dao->userAlreadyExists($pseudo)) {
+      $err="<p>Ce login est deja utilise.</p>";
+      include('../Vue/createaccount.view.php');
+      exit();
     } else {
       $_SESSION['user']=$dao->createUser($pseudo,$password,$mail,$tel,$address);
     }

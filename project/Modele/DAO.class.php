@@ -185,6 +185,41 @@ function userAlreadyExists(string $name):bool{
 	  return new User($pseudo,$password,$mail,$tel,$address);
   }
 
+
+  function getMaxRef(){
+  $req = "Select max(ref) from products";
+  $querry = ($this->db)->query($req);
+  $res = $querry->fetch();
+
+  return intval($res[0]);
 }
+
+function numberOfProducts(){
+$req = "Select count(*) from products";
+$querry = ($this->db)->query($req);
+$res = $querry->fetch();
+
+return intval($res[0]);
+}
+
+//(0,'He He',21,'0.png','Chat d un ancien president ','Mignon','clercma'),
+function insertNewProducts(int $ref, string $title ,int $prix,string $path ,string $description ,string $categorie ,string $owner ){
+  $req = "INSERT INTO products VALUES (:ref,:title,:prix,:path,:description,:categorie,:owner) ";
+  $prep = ($this->db)->prepare($req);
+    $query = $prep->execute(array(
+    'ref' => htmlspecialchars($ref),
+    'title' => htmlspecialchars($title),
+    'prix' => htmlspecialchars($prix),
+    'path' => htmlspecialchars($path),
+    'description' => htmlspecialchars($description),
+    'categorie' => htmlspecialchars($categorie),
+    'owner' => htmlspecialchars($owner),
+
+    ));
+}
+
+}
+
+
 
  ?>

@@ -49,25 +49,25 @@ $sumCount = 0;
         <br>
       <?php endforeach?>
 
-    <br>
-    <br>
+      <br>
+      <br>
 
-    <?php if(sizeof($tab)>0) ?>
-    <article class="Conclution">
-      <p>Total = <?=$totalPrice ?> </p>
-      <form class="" action="../Controleur/Order.ctrl.php" method="get">
-        <input type="submit" name="valide" value="Commender">
-      </form>
-
-    <?php else: ?>
-
-      <?php if(isset($name)): ?>
-        <p class="noArticle">Vous n'avez pas d'article dans votre panier </p>
+      <?php if(sizeof($tab)>0) ?>
+      <article class="Conclution">
+        <p>Total = <?=$totalPrice ?> </p>
+        <form class="" action="../Controleur/Order.ctrl.php" method="get">
+          <input type="submit" name="valide" value="Commender">
+        </form>
 
       <?php else: ?>
-        <p class="noArticle">Vous devez etre connecte pour consuter votre panier </p>
+
+        <?php if(isset($name)): ?>
+          <p class="noArticle">Vous n'avez pas d'article dans votre panier </p>
+
+        <?php else: ?>
+          <p class="noArticle">Vous devez etre connecte pour consuter votre panier </p>
+        <?php endif; ?>
       <?php endif; ?>
-    <?php endif; ?>
     </article>
   </div>
 </body>

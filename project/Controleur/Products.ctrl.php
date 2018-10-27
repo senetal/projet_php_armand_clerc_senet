@@ -8,7 +8,7 @@ session_start();
 $imagePath = "../Modele/data/images/";
 
 $limitPerPage = 3;
-$max = 27;
+$max = $dao->numberOfProducts();
 
 if(isset($_SESSION['user'])){
   $user = $_SESSION['user'];
@@ -85,6 +85,8 @@ if($page == 0){
 }else{
   $pagePrecedente = $page -1;
 }
+
+$page = intval($page);
 
 include '../Vue/Article.view.php';
 ?>

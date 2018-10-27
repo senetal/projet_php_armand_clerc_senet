@@ -22,6 +22,7 @@ if(isset($user)){
         <li><a href="../Controleur/Annonces.ctrl.php">Dépot d'annonce</a></li>
         <li><a href="../Controleur/Products.ctrl.php">Offres</a></li>
         <li><a href="../Controleur/Demandes.ctrl.php">Demandes</a></li>
+          <li><a href="../Controleur/Proposition.ctrl.php">Proposition</a></li>
         <li><a href="../Controleur/Order.ctrl.php">Panier</a></li>
 
         <?php if (isset($name)): ?>

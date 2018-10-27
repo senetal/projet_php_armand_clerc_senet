@@ -73,6 +73,18 @@ $err = "Vous devez dabore etre connecte avant de rajoute au panier ";
 
 $categories = $dao->getCategory();
 
+if(sizeof($products)<$limitPerPage){
+  $pageSuivante = $page;
+}else{
+  $pageSuivante = $page+1;
+}
+
+//Calcule du numeraux des page suivant
+if($page == 0){
+  $pagePrecedente = 0;
+}else{
+  $pagePrecedente = $page -1;
+}
 
 include '../Vue/Article.view.php';
 ?>

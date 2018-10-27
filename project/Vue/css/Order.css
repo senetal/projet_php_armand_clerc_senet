@@ -35,3 +35,8 @@
   text-align: center;
   color: green;
 }
+
+.noArticle{
+  text-align: center;
+  font-weight: bold;
+}

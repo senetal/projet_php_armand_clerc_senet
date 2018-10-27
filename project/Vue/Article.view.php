@@ -60,9 +60,9 @@
   <br>
 
   <div class="arrow">
-    <a href=<?php echo ("\"Products.ctrl.php?page=".($page-1))."&choix_categorie=".$category."&choix_prix=".$triprix."\"" ?> > <img src="../Modele/data/images/left.png" alt="LEFT"> </a>
+    <a href=<?php echo ("\"Products.ctrl.php?page=$pagePrecedente&choix_categorie=".$category."&choix_prix=".$triprix."\"") ?> > <img src="../Modele/data/images/left.png" alt="LEFT"> </a>
     <p> <?php echo $page ?> </p>
-    <a href=<?php echo ("\"Products.ctrl.php?page=".($page+1))."&choix_categorie=".$category."&choix_prix=".$triprix."\"" ?> > <img src="../Modele/data/images/right.png" alt="right"> </a>
+    <a href=<?php echo ("\"Products.ctrl.php?page=$pageSuivante&choix_categorie=".$category."&choix_prix=".$triprix."\"") ?> > <img src="../Modele/data/images/right.png" alt="right"> </a>
   </div>
 </body>
 </html>

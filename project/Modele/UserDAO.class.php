@@ -6,7 +6,7 @@ class UserDAO
   function __construct()
   {
     //$this->db = new PDO("sqlite:data/data.db");
-    //Utilsation du meme DAO 
+    //Utilsation du meme DAO
     $dao = new DAO();
     $this->db = $dao->db;
   }
@@ -26,5 +26,7 @@ class UserDAO
   }
 
 }
+
+
 
 ?>

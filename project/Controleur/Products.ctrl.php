@@ -8,7 +8,7 @@ session_start();
 $imagePath = "../Modele/data/images/";
 
 $limitPerPage = 3;
-$max = 27;
+$max = $dao->numberOfProducts();
 
 if(isset($_SESSION['user'])){
   $user = $_SESSION['user'];
@@ -73,6 +73,20 @@ $err = "Vous devez dabore etre connecte avant de rajoute au panier ";
 
 $categories = $dao->getCategory();
 
+if(sizeof($products)<$limitPerPage){
+  $pageSuivante = $page;
+}else{
+  $pageSuivante = $page+1;
+}
+
+//Calcule du numeraux des page suivant
+if($page == 0){
+  $pagePrecedente = 0;
+}else{
+  $pagePrecedente = $page -1;
+}
+
+$page = intval($page);
 
 include '../Vue/Article.view.php';
 ?>

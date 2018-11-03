@@ -11,16 +11,14 @@ if(isset($_SESSION['user'])){
 
 if(isset($user)){
   $name = $user->name;
-}else{
-  $name = "none";
 }
 
-
+if(isset($name)){
 if(isset($_GET['valide'])){
   $command = $dao->removeProduisPanier($name);
 }
 $tab = $dao->getProduisPanier($name);
-
+}
 //var_dump($tab);
 
 include '../Vue/Order.view.php';

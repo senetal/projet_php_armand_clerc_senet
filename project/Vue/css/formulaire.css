@@ -1,0 +1,33 @@
+input, select, textarea {
+width: 50%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.d25 label {
+  font-size: 15pt;
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  font-weight: bold;
+
+}
+
+.champ::after{
+  content: "";
+display: table;
+clear: both;
+}
+
+.d25{
+  float: left;
+    width: 10%;
+    margin-top: 6px;
+}
+
+.d75{
+  float: left;
+    width: 50%;
+    margin-top: 6px;
+}

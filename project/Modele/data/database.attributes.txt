@@ -1,3 +1,0 @@
-category (name, category)
-user (id,name,password,mail,tel,address)
-products (ref,name,price,image,description,category,owner)

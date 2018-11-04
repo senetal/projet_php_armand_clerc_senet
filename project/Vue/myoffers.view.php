@@ -13,12 +13,10 @@
 <h1>Mes offres</h1>
 
 <div class="achat">
-
-
   <?php foreach ($tab as $a): ?>
 <article class="zone">
   <h2>Nom : <?=$a->name; ?> </h2>
-  <p> ref : <?=$a->ref?></p>
+  <p>Ref : <?=$a->ref?></p>
 
 <img src=<?php echo "\"../Modele/data/images/$a->image\""; ?> alt="Une image">
   <br>
@@ -26,6 +24,8 @@
 <p> Prix Unitaire : <?= $a->price;?></p>
 
   <br>
+
+  <a href="../Controleur/myoffers.ctrl.php?rm=<?=$a->name?>"><button type="button" name="button">Retirer cette offre</button></a>
 
 </article>
 <br>

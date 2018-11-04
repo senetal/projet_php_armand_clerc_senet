@@ -35,7 +35,7 @@ if(isset($_SESSION['user'])){
 
     </div>
 
-    <a href='../Controleur/disconnect.ctrl.php'><button type="button">Se deconnecter</button></a>
-
+    <a href='../Controleur/disconnect.ctrl.php'><button type="button">Se deconnecter</button></a><br><br>
+    <a href='../Controleur/myoffers.ctrl.php'><button type="button">Mes offres</button></a>
   </body>
 </html>

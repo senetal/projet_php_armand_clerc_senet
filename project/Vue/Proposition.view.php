@@ -11,7 +11,7 @@
   </header>
 
   <div class="main">
-    <h1>Propose vos propre chat </h1>
+    <h1>Proposez vos propre chat </h1>
     <article class="">
       <form class="" action="../Controleur/Proposition.ctrl.php" method="post" enctype="multipart/form-data" >
 

@@ -24,6 +24,6 @@
       <input type="submit" name="submit" value="Creer le compte">
     </form>
     <p>Vous possedez un compte ? Connectez-vous ici :</p>
-    <a href='login.view.php'><button type="button">Se connecter</button></a>
+    <a href='../Vue/login.view.php'><button type="button">Se connecter</button></a>
   </body>
 </html>

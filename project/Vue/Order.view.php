@@ -16,7 +16,7 @@ $sumCount = 0;
   <?php if(isset($command)): ?>
 
     <?php if($command): ?>
-      <h2 class="sucesse">Commande passe avec succe</h2>
+      <h2 class="sucesse">Commande passee avec succes</h2>
     <?php else :?>
       <h2 class="fail">Erreur lors de la commande </h2>
     <?php endif ?>
@@ -36,7 +36,7 @@ $sumCount = 0;
           <img src=<?php echo "\"../Modele/data/images/$a->image\""; ?> alt="Une image">
           <br>
 
-          <p> Prix Unitaire : <?= $a->price;   ?>     Nombre de produis:<?= $a->count; ?> </p>
+          <p> Prix unitaire : <?= $a->price;   ?>     Nombre de produits:<?= $a->count; ?> </p>
           <?php $totalPrice +=$a->price*$a->count;
           $sumCount += $a->count;
           ?>
@@ -56,7 +56,7 @@ $sumCount = 0;
       <article class="Conclution">
         <p>Total = <?=$totalPrice ?> </p>
         <form class="" action="../Controleur/Order.ctrl.php" method="get">
-          <input type="submit" name="valide" value="Commender">
+          <input type="submit" name="valide" value="Commander">
         </form>
 
       <?php else: ?>

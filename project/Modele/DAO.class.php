@@ -155,6 +155,33 @@ function removeProduisPanier(string $name){
 
 }
 
+function getOffre(string $owner):array{
+
+$req ="SELECT * from products WHERE owner =:owner";
+$query =($this->db)->prepare($req);
+
+$query->execute(array(
+'owner' => htmlspecialchars($owner)
+));
+
+  $tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
+
+return $tab;
+
+}
+
+function removeOffre(string $name){
+  $req = "DELETE FROM products WHERE name = :name";
+  $prep = ($this->db)->prepare($req);
+
+    $query = $prep->execute(array(
+    'name' => htmlspecialchars($name)
+    ));
+
+    return $query;
+
+}
+
 function getUser(string $name, string $password){
 	$req="SELECT * from user where name='$name' and password='$password'";
 	$query = ($this->db)->query($req);

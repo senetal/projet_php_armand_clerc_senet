@@ -29,7 +29,7 @@
         <select class="choix_prix" name="choix_prix">
           <option value="tous">Tous les prix</option>
           <option value="croissant">Prix croissants</option>
-          <option value="decroissant">Prix décroissants</option>
+          <option value="décroissant">Prix décroissants</option>
         </select>
         <input type="submit" name="submit" value="Recherche">
       </form>
@@ -50,7 +50,7 @@
         <form class="bouton" action="Products.ctrl.php" method="get">
           <input type="hidden" name="add" value=<?php echo ("\"$a->ref\"") ?> >
           <input type="hidden" name="page" value=<?php echo ("\"$page\"") ?>>
-          <input type="submit" name="sbumit" value="Ajouter au pannier"  >
+          <input type="submit" name="sbumit" value="Ajouter au panier"  >
         </form>
       </article>
     <?php endforeach?>

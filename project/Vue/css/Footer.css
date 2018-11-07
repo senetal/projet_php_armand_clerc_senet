@@ -1,0 +1,37 @@
+.disclaim{
+  text-align: center;
+}
+
+not(footer){
+  position: relative;
+}
+
+footer{
+  background-color: #333;
+  text-align: center;
+  border-color: grey;
+  border-radius: 1px;
+  font-size: 11pt;
+
+  position:fixed;
+    bottom:0;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    color :#d7dae0;
+
+}
+
+.cross{
+
+font-size: 15pt;
+font-weight: bold;
+  width: 97%;
+  text-align: right;
+  cursor: pointer;
+}
+
+footer h2,p{
+  padding: 0px;
+  margin: 0px;
+}

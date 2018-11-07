@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Mes articles</title>
-  <link rel="stylesheet" href="../Vue/css/Article.css">
+  <link rel="stylesheet" href="../Vue/css/Article2.css">
 </head>
 <body>
   <header>
@@ -50,7 +50,7 @@
           <form class="bouton" action="Products.ctrl.php" method="get">
             <input type="hidden" name="add" value=<?php echo ("\"$a->ref\"") ?> >
             <input type="hidden" name="page" value=<?php echo ("\"$page\"") ?>>
-            <input type="submit" name="sbumit" value="Ajouter au panier"  >
+            <input class="panier" type="submit" name="sbumit" value="Ajouter au panier"  >
           </form>
         </section>
       </article>
@@ -65,5 +65,8 @@
     <p> <?php echo $page ?> </p>
     <a href=<?php echo ("\"Products.ctrl.php?page=$pageSuivante&choix_categorie=".$category."&choix_prix=".$triprix."\"") ?> > <img src="../Modele/data/images/right.png" alt="right"> </a>
   </div>
+
+      <?php include('footer.php')?>
+
 </body>
 </html>

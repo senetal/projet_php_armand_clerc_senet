@@ -18,7 +18,7 @@
     <div class="tri">
       <form class="bouton" action="Products.ctrl.php" method="get">
         <select class="choix_categorie" name="choix_categorie">
-          <option value="Toutes catégories">Toutes catégories</option>
+          <option value="Toutes catégories">Toutes catégories </option>
           <?php foreach ($categories as $b){
             if ($b->name != ""){
               echo "<option value=\"$b->name\">$b->name</option>";

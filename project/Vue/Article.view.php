@@ -8,7 +8,6 @@
 <body>
   <header>
     <?php include('../Vue/header.php')?>
-
   </header>
 
 <?php if(isset($err)): ?>
@@ -41,17 +40,19 @@
   <div class="main">
     <?php foreach ($products as $a): ?>
       <article class="article">
-        <h2><?=$a->name?></h2>
-        <img src="<?=$imagePath.$a->image?>"   alt="">
-        <br>
-        <p class="prix"><?=$a->price ?>€</p> <br>
-        <p><?=$a->description ?></p>
-
-        <form class="bouton" action="Products.ctrl.php" method="get">
-          <input type="hidden" name="add" value=<?php echo ("\"$a->ref\"") ?> >
-          <input type="hidden" name="page" value=<?php echo ("\"$page\"") ?>>
-          <input type="submit" name="sbumit" value="Ajouter au panier"  >
-        </form>
+        <div class="image">
+          <img src="<?=$imagePath.$a->image?>" alt="">
+        </div>
+        <section class="détails">
+          <h2><?=$a->name?></h2>
+          <p class="description"><?=$a->description ?></p><br>
+          <p class="prix"><?=$a->price ?>€</p>
+          <form class="bouton" action="Products.ctrl.php" method="get">
+            <input type="hidden" name="add" value=<?php echo ("\"$a->ref\"") ?> >
+            <input type="hidden" name="page" value=<?php echo ("\"$page\"") ?>>
+            <input type="submit" name="sbumit" value="Ajouter au panier"  >
+          </form>
+        </section>
       </article>
     <?php endforeach?>
   </div>

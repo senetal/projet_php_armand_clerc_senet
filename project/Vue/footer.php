@@ -8,7 +8,7 @@
 
   <article class="disclaim">
 
-    <p>Ce site est un project pour le Modulle de php , nous refuton tout probleme lie as la securtie de vos donne , les degas mental ou les griffure de chat </p>
+    <p>Ce site est un projet pour le module de php du 3e semestre de DUT, nous ne sommes pas responsables des problèmes liés à la sécurité de vos données , aux dégâts mentaux ou aux griffures des chats</p>
 
   </article>
 

@@ -15,7 +15,11 @@
 
     <div class="main">
       <h2>Bienvenue sur Lebonchat.fr ! </h2><br>
-      <p>Vous devez vous connecter pour pouvoir continuer sur notre site :</p>
+
+      <a href="../Controleur/Products.ctrl.php"><button type="button" name="button">Consultez nos offres !</button></a>
+
+      <br><br><br><br>
+      <p>Connectez-vous ici :</p>
       <a href='../Vue/login.view.php'><button type="button">Se connecter</button></a>
       <p>Pas encore membre ? Inscrivez-vous ici :</p>
       <a href='../Vue/createaccount.view.php'><button type="button">Creer un compte</button></a>

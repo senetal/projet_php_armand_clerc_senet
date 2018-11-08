@@ -16,5 +16,7 @@
     </form>
     <p>Pas de compte ? Creez-en un ici :</p>
     <a href='../Vue/createaccount.view.php'><button type="button">Creer un compte</button></a>
+
+      <?php include('footer.php')?>
   </body>
 </html>

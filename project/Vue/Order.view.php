@@ -70,5 +70,6 @@ $sumCount = 0;
       <?php endif; ?>
     </article>
   </div>
+      
 </body>
 </html>

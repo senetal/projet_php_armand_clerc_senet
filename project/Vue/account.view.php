@@ -5,6 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 if(isset($_SESSION['user'])){
   $usr = $_SESSION['user'];
+  $name = $usr->name;
 }
 
  ?>

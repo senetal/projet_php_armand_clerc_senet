@@ -7,7 +7,7 @@ require_once('../Modele/User.class.php');
 session_start();
 $imagePath = "../Modele/data/images/";
 
-$limitPerPage = 3;
+$limitPerPage = 8;
 $max = $dao->numberOfProducts();
 
 if(isset($_SESSION['user'])){

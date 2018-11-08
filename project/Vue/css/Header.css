@@ -1,3 +1,5 @@
+
+
 .header{
   background-color: #333;
 
@@ -28,6 +30,7 @@
 
 .refBareMenu ul li a:hover  {
     background-color: #111;
+     cursor: pointer;
 }
 
 .active {

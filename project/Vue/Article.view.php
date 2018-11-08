@@ -3,12 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>Mes articles</title>
-  <link rel="stylesheet" href="../Vue/css/Article.css">
+  <link rel="stylesheet" href="../Vue/css/Article2.css">
 </head>
 <body>
   <header>
     <?php include('../Vue/header.php')?>
-
   </header>
 
 <?php if(isset($err)): ?>
@@ -19,7 +18,7 @@
     <div class="tri">
       <form class="bouton" action="Products.ctrl.php" method="get">
         <select class="choix_categorie" name="choix_categorie">
-          <option value="Toutes catégories">Toutes catégories</option>
+          <option value="Toutes catégories">Toutes catégories </option>
           <?php foreach ($categories as $b){
             if ($b->name != ""){
               echo "<option value=\"$b->name\">$b->name</option>";
@@ -41,17 +40,19 @@
   <div class="main">
     <?php foreach ($products as $a): ?>
       <article class="article">
-        <h2><?=$a->name?></h2>
-        <img src="<?=$imagePath.$a->image?>"   alt="<?=$a->description?>">
-        <br>
-        <p class="prix"><?=$a->price ?>€</p> <br>
-        <p><?=$a->description ?></p>
-
-        <form class="bouton" action="Products.ctrl.php" method="get">
-          <input type="hidden" name="add" value=<?php echo ("\"$a->ref\"") ?> >
-          <input type="hidden" name="page" value=<?php echo ("\"$page\"") ?>>
-          <input type="submit" name="sbumit" value="Ajouter au panier"  >
-        </form>
+        <div class="image">
+          <img src="<?=$imagePath.$a->image?>" alt="<?=$a->description?>">
+        </div>
+        <section class="détails">
+          <h2><?=$a->name?></h2>
+          <p class="description"><?=$a->description ?></p><br>
+          <p class="prix"><?=$a->price ?>€</p>
+          <form class="bouton" action="Products.ctrl.php" method="get">
+            <input type="hidden" name="add" value=<?php echo ("\"$a->ref\"") ?> >
+            <input type="hidden" name="page" value=<?php echo ("\"$page\"") ?>>
+            <input class="panier" type="submit" name="sbumit" value="Ajouter au panier"  >
+          </form>
+        </section>
       </article>
     <?php endforeach?>
   </div>
@@ -64,5 +65,8 @@
     <p> <?php echo $page ?> </p>
     <a href=<?php echo ("\"Products.ctrl.php?page=$pageSuivante&choix_categorie=".$category."&choix_prix=".$triprix."\"") ?> > <img src="../Modele/data/images/right.png" alt="right"> </a>
   </div>
+
+      <?php include('footer.php')?>
+
 </body>
 </html>

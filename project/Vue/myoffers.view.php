@@ -18,7 +18,7 @@
   <h2>Nom : <?=$a->name; ?> </h2>
   <p>Ref : <?=$a->ref?></p>
 
-<img src=<?php echo "\"../Modele/data/images/$a->image\""; ?> alt="Une image">
+<img src=<?php echo "\"../Modele/data/images/$a->image\""; ?> alt="<?=$a->description?>">
   <br>
 
 <p> Prix Unitaire : <?= $a->price;?></p>

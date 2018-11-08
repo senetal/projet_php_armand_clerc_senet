@@ -41,7 +41,7 @@
     <?php foreach ($products as $a): ?>
       <article class="article">
         <div class="image">
-          <img src="<?=$imagePath.$a->image?>" alt="">
+          <img src="<?=$imagePath.$a->image?>" alt="<?=$a->description?>">
         </div>
         <section class="détails">
           <h2><?=$a->name?></h2>

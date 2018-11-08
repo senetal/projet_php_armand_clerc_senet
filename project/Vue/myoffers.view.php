@@ -8,7 +8,7 @@
   <body>
     <?php include('../Vue/header.php')?>
 
-    <?php include('../Vue/accountmenu.php') ?>
+
 
 <h1>Mes offres</h1>
 
@@ -25,7 +25,7 @@
 
   <br>
 
-  <a href="../Controleur/myoffers.ctrl.php?rm=<?=$a->name?>"><button type="button" name="button">Retirer cette offre</button></a>
+  <a href="../Controleur/myoffers.ctrl.php?rm=<?=$a->name?>"><button type="button" class="remove" name="button">Retirer cette offre</button></a>
 
 </article>
 <br>

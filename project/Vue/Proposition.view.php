@@ -96,7 +96,7 @@
           </div>
           <div class="d75">
 
-            <input type="file" id="file" name="fileToUpload" id="fileToUpload" required>
+            <input type="file"  id="file" name="fileToUpload" id="fileToUpload" required>
           </div>
         </article>
 
@@ -104,7 +104,7 @@
 
 
 
-        <input type="submit" name="valide" value="Poster" >
+        <input class="boutton" type="submit" name="valide" value="Poster" >
       </form>
     </article>
 

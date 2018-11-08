@@ -56,7 +56,7 @@ $sumCount = 0;
       <article class="Conclution">
         <p>Total = <?=$totalPrice ?> </p>
         <form class="" action="../Controleur/Order.ctrl.php" method="get">
-          <input class = "button" type="submit" name="valide" value="Commander">
+          <input class = "boutton" type="submit" name="valide" value="Commander">
         </form>
 
       <?php else: ?>

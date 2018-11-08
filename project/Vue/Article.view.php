@@ -47,6 +47,7 @@
           <h2><?=$a->name?></h2>
           <p class="description"><?=$a->description ?></p><br>
           <p class="prix"><?=$a->price ?>€</p>
+          <br>
           <form class="bouton" action="Products.ctrl.php" method="get">
             <input type="hidden" name="add" value=<?php echo ("\"$a->ref\"") ?> >
             <input type="hidden" name="page" value=<?php echo ("\"$page\"") ?>>

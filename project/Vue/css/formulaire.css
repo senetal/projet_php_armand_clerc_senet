@@ -38,3 +38,14 @@ clear: both;
   font-weight: bold;
   text-align: center;
 }
+
+
+
+input,select,textarea{
+  border: 1px solid black;
+}
+
+.boutton{
+  margin: 4px 2px;
+  padding: 1% 33%;
+}

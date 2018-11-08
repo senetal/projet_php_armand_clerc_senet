@@ -135,6 +135,7 @@ $query->execute(array(
 'name' => htmlspecialchars($name)
 ));
 
+
   $tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'ProductsPanier');
 
 return $tab;
@@ -143,7 +144,9 @@ return $tab;
 
 
 function removeProduisPanier(string $name){
-  $req = "DELETE FROM panier WHERE name = :name";
+
+
+  $req = "Select ref from panier where name =:name ";
   $prep = ($this->db)->prepare($req);
 
 
@@ -151,6 +154,58 @@ function removeProduisPanier(string $name){
     'name' => htmlspecialchars($name)
     ));
 
+//Je recupere un tableu de string
+  $tabRef =  $prep->fetchAll();
+
+  //Je le traduis en tableau de int
+$tabInt = array();
+foreach($tabRef as $k=>$v ){
+  //Cela est une array je prend juste le premier ellement
+$tabInt[] = intval($v[0]);
+}
+
+//On Transfome nos int en une longue string
+$ref = implode("','", $tabInt);
+
+//Et on extcute
+//Ici on peux faire un querry car les donne son fiable (elle vien d'un select qui ne revois que des nombre) , pas besoin de prepare
+
+//Pour le panier
+  $req = "DELETE FROM panier WHERE ref in ('$ref') ";
+$query = ($this->db)->query($req);
+
+//Pour les produis 
+$req = "DELETE FROM products WHERE ref in ('$ref') ";
+$query = ($this->db)->query($req);
+
+
+
+
+
+
+/*
+//------------DELETE PANIER---------------
+  $req = "DELETE FROM panier WHERE ref in (:tab) ";
+  $prep = ($this->db)->prepare($req);
+
+    $query = $prep->execute(array(
+    'tab' => $tabRef
+    ));
+
+echo "Produis $query";
+
+//-----------------DELETE PRODUCTS---------------
+
+  $req = "DELETE FROM products WHERE ref in (:tab) ";
+  $prep = ($this->db)->prepare($req);
+
+
+    $query = $prep->execute(array(
+  'tab' => $tabRef
+    ));
+
+echo "Produis $query";
+*/
     return $query;
 
 }

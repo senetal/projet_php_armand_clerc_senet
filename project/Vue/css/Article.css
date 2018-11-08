@@ -1,4 +1,9 @@
 /*test*/
+
+
+
+
+
 .error{
   color: red;
 }
@@ -53,4 +58,23 @@
   margin: 10px;
   text-align: center;
   background-color: red;
+}
+
+.panier{
+  padding:  10px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 7px;
+box-shadow: 0 9px #999;
+
+}
+
+.panier:hover{
+  background-color: #12871e;
+
 }

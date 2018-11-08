@@ -1,5 +1,12 @@
 
 
+
+body{
+  background-color: #e6e6e6;
+  background-image: url("https://peda.net/p/lahti.pyry/kuvat/kuvat/c3:file/download/3242f974736a0f3a06ce0241778d84f84c3ee11b/crumpled_paper_texture_by_pkgam-d73k5mj.jpg&quot;);");
+  background-repeat: repeat;
+}
+
 .header{
   background-color: #333;
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Mes articles</title>
-  <link rel="stylesheet" href="../Vue/css/Article2.css">
+  <link rel="stylesheet" href="../Vue/css/Article.css">
 </head>
 <body>
   <header>

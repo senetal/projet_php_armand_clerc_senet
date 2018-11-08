@@ -11,6 +11,11 @@
   </header>
 
   <div class="main">
+
+    <?php if(isset($err)): ?>
+    <p class="error"><?php echo "$err" ?></p>
+    <?php endif; ?>
+
     <h1>Proposez vos propre chat </h1>
     <article class="">
       <form class="" action="../Controleur/Proposition.ctrl.php" method="post" enctype="multipart/form-data" >

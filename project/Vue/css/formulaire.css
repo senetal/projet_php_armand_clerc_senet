@@ -31,3 +31,10 @@ clear: both;
     width: 50%;
     margin-top: 6px;
 }
+
+.error{
+  color: red;
+  font-size: 20pt;
+  font-weight: bold;
+  text-align: center;
+}

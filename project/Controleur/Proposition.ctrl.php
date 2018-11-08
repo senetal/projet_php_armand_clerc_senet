@@ -69,8 +69,6 @@ $target_file = $path.$fileName;
 
 }
 
-}else if(isset($err)){
-  echo $err;
 }
 
 

@@ -42,7 +42,7 @@
     <?php foreach ($products as $a): ?>
       <article class="article">
         <h2><?=$a->name?></h2>
-        <img src="<?=$imagePath.$a->image?>"   alt="">
+        <img src="<?=$imagePath.$a->image?>"   alt="<?=$a->description?>">
         <br>
         <p class="prix"><?=$a->price ?>€</p> <br>
         <p><?=$a->description ?></p>

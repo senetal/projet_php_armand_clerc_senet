@@ -33,7 +33,7 @@ $sumCount = 0;
           <h2>Nom : <?= $a->name; ?> </h2>
           <p> ref : <?=$a->ref?></p>
 
-          <img src=<?php echo "\"../Modele/data/images/$a->image\""; ?> alt="Une image">
+          <img src=<?php echo "\"../Modele/data/images/$a->image\""; ?> alt="<?=$a->description?>">
           <br>
 
           <p> Prix unitaire : <?= $a->price;   ?>     Nombre de produits:<?= $a->count; ?> </p>

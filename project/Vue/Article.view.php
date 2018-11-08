@@ -35,7 +35,7 @@
     </div>
   </fieldset>
 
-  <h1>Voici les chat disponible</h1>
+  <h1>Voici les chats disponibles</h1>
 
   <div class="main">
     <?php foreach ($products as $a): ?>

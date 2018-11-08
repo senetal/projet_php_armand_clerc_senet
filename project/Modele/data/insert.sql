@@ -12,7 +12,7 @@ insert into category values
   ('Fat','Chat'),
   ('Colerique','Chat'),
   ('MANGE TON AME','Chat');
-
+--Inser valeur 
 insert into products values
   (0,'He He',21,'0.png','Chat d un ancien president ','Mignon','clercma'),
   (1,'Gros yeux',42,'1.jpg','Je te voie','Mignon','clercma'),

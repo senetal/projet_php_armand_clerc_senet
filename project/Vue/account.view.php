@@ -19,7 +19,7 @@ if(isset($_SESSION['user'])){
   <body>
     <?php include('../Vue/header.php')?>
 
-    <?php include('../Vue/accountmenu.php') ?>
+    <h1>Mon compte</h1>
 
     <div class='account'>
 

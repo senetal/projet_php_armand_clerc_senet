@@ -31,8 +31,7 @@ function getCategory(){
 
 // tableau des produits non triés
 function getPage(int $page,int $n,$triprix) : array{
-  //$req = "SELECT * from Products ORDER BY ref LIMIT $page,$n";
-  //$query = ($this->db)->query($req);
+
   if ($triprix == "croissant"){
     $req = "SELECT * from Products ORDER BY price LIMIT :page,:n";
   }
@@ -74,29 +73,18 @@ function getPageCategorie(int $page,int $n,$categorie,$triprix) : array{
 
 
 
-//Pense as gere le cas de multiple ajout avec des triger
+//Ajout au panier d'un produis pour un utilisateur donne
 function addPanier(string $name ,int $ref){
-  //$req = "INSERT INTO panier Values ($name,$ref,0)";
+
   $nb = 0;
-  /*
-    $req = "Select count(*) from panier where name=:name and ref =:ref";
-  $prep = ($this->db)->prepare($req);
 
-
-
-    $nb = $prep->execute(array(
-    'name' => $name,
-    'ref' => $ref
-    ));
-  */
-
+//Recupreation du nombre d'article que la perssone posste pour cette refence
   $req = "Select count from panier where name='$name' and ref =$ref";
   $query = ($this->db)->query($req);
   $nb = $query->fetch();
   $nb = intval($nb[0]);
-  //var_dump($req);
-  var_dump($nb);
 
+  //Si elle n'as jamais ajoute ce produis on lui rajoute
   if($nb==0){
     $req = "INSERT INTO panier Values(:name,:ref,1)";
     $prep = ($this->db)->prepare($req);
@@ -107,6 +95,7 @@ function addPanier(string $name ,int $ref){
 	'ref' => htmlspecialchars($ref)
 	));
 
+//Si elle as deja eu ce produis on incremete de 1
 }else{
 
 
@@ -123,6 +112,7 @@ function addPanier(string $name ,int $ref){
 }
 }
 
+//Recupere tout les prodis d'une perssone pour un panner
 function getProduisPanier(string $name):array{
 
 
@@ -143,6 +133,7 @@ return $tab;
 }
 
 
+//Enleve un produis dus pannier d'une perssone quand elle as commande
 function removeProduisPanier(string $name){
 
 
@@ -174,42 +165,15 @@ $ref = implode("','", $tabInt);
   $req = "DELETE FROM panier WHERE ref in ('$ref') ";
 $query = ($this->db)->query($req);
 
-//Pour les produis 
+//Pour les produis
 $req = "DELETE FROM products WHERE ref in ('$ref') ";
 $query = ($this->db)->query($req);
 
-
-
-
-
-
-/*
-//------------DELETE PANIER---------------
-  $req = "DELETE FROM panier WHERE ref in (:tab) ";
-  $prep = ($this->db)->prepare($req);
-
-    $query = $prep->execute(array(
-    'tab' => $tabRef
-    ));
-
-echo "Produis $query";
-
-//-----------------DELETE PRODUCTS---------------
-
-  $req = "DELETE FROM products WHERE ref in (:tab) ";
-  $prep = ($this->db)->prepare($req);
-
-
-    $query = $prep->execute(array(
-  'tab' => $tabRef
-    ));
-
-echo "Produis $query";
-*/
     return $query;
 
 }
 
+//Toute les offre d'une perssone
 function getOffre(string $owner):array{
 
 $req ="SELECT * from products WHERE owner =:owner";
@@ -225,6 +189,7 @@ return $tab;
 
 }
 
+//Enleve une offre
 function removeOffre(string $name){
   $req = "DELETE FROM products WHERE name = :name";
   $prep = ($this->db)->prepare($req);
@@ -237,6 +202,7 @@ function removeOffre(string $name){
 
 }
 
+//Recupere un utilisteur pour un nom et un mdp donne
 function getUser(string $name, string $password){
 	$req="SELECT * from user where name='$name' and password='$password'";
 	$query = ($this->db)->query($req);
@@ -246,6 +212,7 @@ function getUser(string $name, string $password){
   return NULL;
 }
 
+//Verifie si un utilisteur exite deja
 function userAlreadyExists(string $name):bool{
 	$req="SELECT * from user where name='$name'";
 	$query = ($this->db)->query($req);
@@ -253,6 +220,7 @@ function userAlreadyExists(string $name):bool{
   return isset($tab[0]);
 }
 
+//Cree un nouvelle user
   public function createUser(string $pseudo, string $password, string $mail, string $tel, string $address):User{
     $req = "insert into user values(:pseudo,:password,:mail,:tel,:address)";
     $query =($this->db)->prepare($req);
@@ -268,6 +236,7 @@ function userAlreadyExists(string $name):bool{
   }
 
 
+//Numere de la reference maximale
   function getMaxRef(){
   $req = "Select max(ref) from products";
   $querry = ($this->db)->query($req);
@@ -276,6 +245,7 @@ function userAlreadyExists(string $name):bool{
   return intval($res[0]);
 }
 
+//Nombre de produis total
 function numberOfProducts(){
 $req = "Select count(*) from products";
 $querry = ($this->db)->query($req);
@@ -284,7 +254,7 @@ $res = $querry->fetch();
 return intval($res[0]);
 }
 
-//(0,'He He',21,'0.png','Chat d un ancien president ','Mignon','clercma'),
+//Rajoute un nouveaux produis 
 function insertNewProducts(int $ref, string $title ,int $prix,string $path ,string $description ,string $categorie ,string $owner ){
   $req = "INSERT INTO products VALUES (:ref,:title,:prix,:path,:description,:categorie,:owner) ";
   $prep = ($this->db)->prepare($req);

@@ -1,9 +1,3 @@
-/*test*/
-
-
-
-
-
 .error{
   color: red;
 }
@@ -23,7 +17,10 @@
   padding: 10px;
   text-align: center;
   background-color: white;
-
+}
+.bouton{
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .image{
@@ -72,9 +69,7 @@
   background-color: SteelBlue ;
   border: none;
   border-radius: 7px;
-box-shadow: 0 9px #999;
-
-
+  box-shadow: 0 9px #999;
 }
 
 .détails form{
@@ -85,5 +80,4 @@ box-shadow: 0 9px #999;
 
 .panier:hover{
   background-color: #326087;
-
 }

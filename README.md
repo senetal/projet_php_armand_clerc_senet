@@ -15,7 +15,7 @@ Exemple de scénario pour tester le site :
 
 7- Passez commande
 
-8- Retournez sur les offrez et constatez que les offres qui ont été commandées ont disparu
+8- Retournez sur les offres et constatez que les offres qui ont été commandées ont disparu
 
 9- Cliquez sur votre nom et vérifiez les informations
 

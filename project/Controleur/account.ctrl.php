@@ -41,7 +41,14 @@
       include('../Vue/createaccount.view.php');
       exit();
     } else {
-      $_SESSION['user']=$dao->createUser($pseudo,$password,$mail,$tel,$address);
+      $usr = $dao->createUser($pseudo,$password,$mail,$tel,$address);
+      $_SESSION['user']= $usr;
+
+      if($usr==NULL){
+          $err="<p>Un probleme est survenus</p>";
+            include('../Vue/createaccount.view.php');
+      }
+
     }
   } else {
       $usr=$dao->getUser($pseudo,$password);

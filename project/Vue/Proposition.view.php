@@ -11,6 +11,11 @@
   </header>
 
   <div class="main">
+
+    <?php if(isset($err)): ?>
+    <p class="error"><?php echo "$err" ?></p>
+    <?php endif; ?>
+
     <h1>Proposez vos propre chat </h1>
     <article class="">
       <form class="" action="../Controleur/Proposition.ctrl.php" method="post" enctype="multipart/form-data" >
@@ -91,7 +96,7 @@
           </div>
           <div class="d75">
 
-            <input type="file" id="file" name="fileToUpload" id="fileToUpload" required>
+            <input type="file"  id="file" name="fileToUpload" id="fileToUpload" required>
           </div>
         </article>
 
@@ -99,7 +104,7 @@
 
 
 
-        <input type="submit" name="valide" value="Poster" >
+        <input class="boutton" type="submit" name="valide" value="Poster" >
       </form>
     </article>
 

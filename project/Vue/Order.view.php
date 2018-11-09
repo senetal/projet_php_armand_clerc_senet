@@ -13,9 +13,10 @@ $sumCount = 0;
 <body>
   <?php include('../Vue/header.php')?>
 
-  <?php if(isset($command)): ?>
 
-    <?php if($command): ?>
+  <?php if(isset($command)): //Si une commande as ete passe ?>
+
+    <?php if($command):   //Si la commande n'as pas renconre de probleme ?>
       <h2 class="sucesse">Commande passee avec succes</h2>
     <?php else :?>
       <h2 class="fail">Erreur lors de la commande </h2>
@@ -28,7 +29,7 @@ $sumCount = 0;
   <div class="achat">
 
     <?php if(isset($tab) ): ?>
-      <?php foreach ($tab as $a): ?>
+      <?php foreach ($tab as $a): //Afichage de chaque article ?>
         <article class="zone">
           <h2>Nom : <?= $a->name; ?> </h2>
           <p> ref : <?=$a->ref?></p>
@@ -56,7 +57,7 @@ $sumCount = 0;
       <article class="Conclution">
         <p>Total = <?=$totalPrice ?> </p>
         <form class="" action="../Controleur/Order.ctrl.php" method="get">
-          <input class = "button" type="submit" name="valide" value="Commander">
+          <input class = "boutton" type="submit" name="valide" value="Commander">
         </form>
 
       <?php else: ?>

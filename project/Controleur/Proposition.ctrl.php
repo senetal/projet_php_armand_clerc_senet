@@ -30,7 +30,7 @@ if(isset($_POST['title'])&&isset($_POST['desc'])&&isset($_POST['prix'])&&isset($
     $err = "Ce fichier n'est pas une image ";
   }
 
-  //Ne pas metre en ligne une image tros loud
+  //Ne pas metre en ligne une image tros lourde
   if ($_FILES["fileToUpload"]["size"] > 500000) {
     $err = "Ficher tros lourd";
     $ok = false;
@@ -44,11 +44,11 @@ if(isset($_POST['title'])&&isset($_POST['desc'])&&isset($_POST['prix'])&&isset($
   }
 
 }else{
-  //Si il ny as pas de fichie uplode ou des information manqunte
+  //Si il n'y as pas de fichier uplode ou des informations manquante
   $ok = false;
 }
 
-//Verifi que la setion en cour exite
+//Verifi que la session en cour exite
 if(isset($_SESSION['user'])){
   $user = $_SESSION['user'];
 
@@ -64,9 +64,9 @@ if($ok){
   $maxRef = $dao->getMaxRef();
   $fileName = ($maxRef+1).".".$ext;
   $target_file = $path.$fileName;
-  //Si il ny as pas eu de pbr
+  //Si il ny as pas eu de problèmes
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    //Insere dans la base de donne
+    //Insere dans la base de donnee
     $newRef = ($maxRef+1);
     $resulta = $dao->insertNewProducts($newRef,$title,$prix,$fileName,$desc,$cat,$name);
 
@@ -75,14 +75,14 @@ if(!$resulta){
 }
 
   }else{
-    //Si il y a eu un pbr
+    //Si il y a eu un problème
     $err = "Une erreur est survenue merci de bien vouloir recomence";
   }
 
 }
 
 
-//Gestion des diferente categorie disponible
+//Gestion des differentes categories disponible
 
 $categories = $dao->getCategory();
 

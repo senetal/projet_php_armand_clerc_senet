@@ -14,12 +14,12 @@ if(isset($_SESSION['user'])){
   $user = $_SESSION['user'];
 }
 
-//Recupere le nom de la perssone
+//Recupere le nom de la personne
 if(isset($user)){
   $name = $user->name;
 }
 
-//Gestion des page
+//Gestion des pages
 if(isset($_GET['page'])){
   $page = $_GET['page'];
 }else{
@@ -40,7 +40,7 @@ else{
   $triprix = "tous";
 }
 
-//cb as aficher
+//les article a afficher par page
 $nb = $page*$limitPerPage;
 
 

@@ -67,7 +67,6 @@
     <a href=<?php echo ("\"Products.ctrl.php?page=$pageSuivante&choix_categorie=".$category."&choix_prix=".$triprix."\"") ?> > <img src="../Modele/data/images/right.png" alt="right"> </a>
   </div>
 
-      <?php include('footer.php')?>
 
 </body>
 </html>

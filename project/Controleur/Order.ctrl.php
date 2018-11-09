@@ -23,7 +23,6 @@ if(isset($_GET['valide'])){
 //On lui affice les produis commande
 $tab = $dao->getProduisPanier($name);
 }
-//var_dump($tab);
 
 include '../Vue/Order.view.php';
 

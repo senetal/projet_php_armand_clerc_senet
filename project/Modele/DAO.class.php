@@ -73,12 +73,12 @@ function getPageCategorie(int $page,int $n,$categorie,$triprix) : array{
 
 
 
-//Ajout au panier d'un produis pour un utilisateur donne
+//Ajout au panier d'un produis pour un utilisateur donné
 function addPanier(string $name ,int $ref){
 
   $nb = 0;
 
-//Recupreation du nombre d'article que la perssone posste pour cette refence
+//Recupreation du nombre d'article que la personne poste pour cette refence
   $req = "Select count from panier where name='$name' and ref =$ref";
   $query = ($this->db)->query($req);
   $nb = $query->fetch();
@@ -112,7 +112,7 @@ function addPanier(string $name ,int $ref){
 }
 }
 
-//Recupere tout les prodis d'une perssone pour un panner
+//Recupere tout les prodis d'une perssone pour un panier
 function getProduisPanier(string $name):array{
 
 
@@ -133,7 +133,7 @@ return $tab;
 }
 
 
-//Enleve un produis dus pannier d'une perssone quand elle as commande
+//Enleve un produis du panier d'une perssone quand elle as commander
 function removeProduisPanier(string $name){
 
 
@@ -151,7 +151,7 @@ function removeProduisPanier(string $name){
   //Je le traduis en tableau de int
 $tabInt = array();
 foreach($tabRef as $k=>$v ){
-  //Cela est une array je prend juste le premier ellement
+  //Cela est une array je prend juste le premier element
 $tabInt[] = intval($v[0]);
 }
 
@@ -173,7 +173,7 @@ $query = ($this->db)->query($req);
 
 }
 
-//Toute les offre d'une perssone
+//Toute les offres d'une perssone
 function getOffre(string $owner):array{
 
 $req ="SELECT * from products WHERE owner =:owner";
@@ -284,7 +284,7 @@ function insertNewProducts(int $ref, string $title ,int $prix,string $path ,stri
     'owner' => htmlspecialchars($owner),
 
     ));
-  
+
     return $query;
 }
 

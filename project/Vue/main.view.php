@@ -32,6 +32,7 @@
       <p>Pas encore membre ? Inscrivez-vous ici :</p>
       <a href='../Vue/createaccount.view.php'><button class="boutton" type="button">Créer un compte</button></a>
     </div>
+    
 
     <footer>
       <?php include('footer.php')?>

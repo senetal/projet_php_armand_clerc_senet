@@ -20,7 +20,6 @@ if(isset($user)){
 if(isset($name)){
   $tab = $dao->getOffre($name);
 }
-//var_dump($tab);
 
 include '../Vue/myoffers.view.php';
 

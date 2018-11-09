@@ -32,12 +32,12 @@ $sumCount = 0;
       <?php foreach ($tab as $a): //Afichage de chaque article ?>
         <article class="zone">
           <h2>Nom : <?= $a->name; ?> </h2>
-          <p> ref : <?=$a->ref?></p>
+          <p>Référence : <?=$a->ref?></p>
 
           <img src=<?php echo "\"../Modele/data/images/$a->image\""; ?> alt="<?=$a->description?>">
           <br>
 
-          <p> Prix unitaire : <?= $a->price;   ?>     Nombre de produits:<?= $a->count; ?> </p>
+          <p>Prix unitaire : <?= $a->price;   ?>     Nombre de produits:<?= $a->count; ?> </p>
           <?php $totalPrice +=$a->price*$a->count;
           $sumCount += $a->count;
           ?>
@@ -66,7 +66,7 @@ $sumCount = 0;
           <p class="noArticle">Vous n'avez pas d'article dans votre panier </p>
 
         <?php else: ?>
-          <p class="noArticle">Vous devez etre connecte pour consuter votre panier </p>
+          <p class="noArticle">Vous devez être connecté pour consulter votre panier </p>
         <?php endif; ?>
       <?php endif; ?>
     </article>

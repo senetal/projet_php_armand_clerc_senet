@@ -20,7 +20,7 @@
       <h2>Bienvenue sur Lebonchat.fr ! </h2><br>
 
       <article class="intro">
-        <p>Vous voullez de la companie ne chersse plus vous trouvez ici le chat qui vous convient </p>
+        <p>Vous voulez de la compagnie ? Ne cherchez plus, trouvez ici le chat qui vous convient !</p>
       </article>
 
 
@@ -30,7 +30,7 @@
       <p>Connectez-vous ici :</p>
       <a href='../Vue/login.view.php'><button type="button" class="boutton">Se connecter</button></a>
       <p>Pas encore membre ? Inscrivez-vous ici :</p>
-      <a href='../Vue/createaccount.view.php'><button class="boutton" type="button">Creer un compte</button></a>
+      <a href='../Vue/createaccount.view.php'><button class="boutton" type="button">Créer un compte</button></a>
     </div>
 
     <footer>

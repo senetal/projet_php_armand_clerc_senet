@@ -1,22 +1,22 @@
 # projet_php_armand_clerc_senet
-Exemple de Scénario pour Test le site : 
+Exemple de scénario pour tester le site :
 
-1- Allez sur la page d'accueille
+1- Allez sur la page d'accueil
 
-2- Se créer un compte
+2- Créez un compte
 
-3-Ce connecter
+3- Connectez-vous
 
-4-Mettre en ligne une ou plutire offre (Nous conseillon de lui mettre un prix sois tres petite sois tres grand )
+4- Mettez en ligne une ou plusieures offres (Nous conseillons de lui mettre un prix inférieur à 10 €)
 
-5- Allez dans les offre dispoble et fair un trie par categrorie et par prix 
+5- Allez dans les offres disponible et faites un tri par catégorie/par prix
 
-6- Ajoute des offre as son Pannier 
+6- Ajoutez des offres à votre panier
 
-7 - Passe commande 
+7- Passez commande
 
-8- Retourne sur les offre et constate que les offre que lon as commande on bien disparus.
+8- Retournez sur les offres et constatez que les offres qui ont été commandées ont disparu
 
-9-Clique sur son nom et verifie les information 
+9- Cliquez sur votre nom et vérifiez les informations
 
-10 - Ce deconecte .
+10- Déconnectez-vous

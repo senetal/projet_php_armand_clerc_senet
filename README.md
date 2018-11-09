@@ -5,7 +5,7 @@ Exemple de scénario pour tester le site :
 
 2- Créez un compte
 
-3- Connectez-vous
+3- Connectez-vous (si il y a un probleme connectez-vous avec -> nom : senetal / mdp:  password, pour pouvoir tester des offres déjà existantes)
 
 4- Mettez en ligne une ou plusieures offres (Nous conseillons de lui mettre un prix inférieur à 10 €)
 

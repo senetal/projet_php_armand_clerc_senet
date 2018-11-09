@@ -204,9 +204,18 @@ function removeOffre(string $name){
 
 //Recupere un utilisteur pour un nom et un mdp donne
 function getUser(string $name, string $password){
-	$req="SELECT * from user where name='$name' and password='$password'";
+	$req="SELECT * from user where name=:name and password=:password";
 	$query = ($this->db)->query($req);
-	$tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'User');
+
+  $prep = ($this->db)->prepare($req);
+
+    $query = $prep->execute(array(
+    'name' => htmlspecialchars($name),
+      'password' => htmlspecialchars($password),
+
+    ));
+
+	$tab = $prep->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'User');
   if (isset($tab[0]))
   return $tab[0];
   return NULL;
@@ -214,9 +223,16 @@ function getUser(string $name, string $password){
 
 //Verifie si un utilisteur exite deja
 function userAlreadyExists(string $name):bool{
-	$req="SELECT * from user where name='$name'";
-	$query = ($this->db)->query($req);
-	$tab = $query->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'User');
+	$req="SELECT * from user where name=:name";
+
+
+  $prep = ($this->db)->prepare($req);
+
+    $query = $prep->execute(array(
+    'name' => htmlspecialchars($name)
+    ));
+
+	$tab = $prep->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'User');
   return isset($tab[0]);
 }
 
@@ -254,7 +270,7 @@ $res = $querry->fetch();
 return intval($res[0]);
 }
 
-//Rajoute un nouveaux produis 
+//Rajoute un nouveaux produis
 function insertNewProducts(int $ref, string $title ,int $prix,string $path ,string $description ,string $categorie ,string $owner ){
   $req = "INSERT INTO products VALUES (:ref,:title,:prix,:path,:description,:categorie,:owner) ";
   $prep = ($this->db)->prepare($req);

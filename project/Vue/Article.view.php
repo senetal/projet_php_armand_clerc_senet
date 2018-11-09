@@ -10,7 +10,7 @@
     <?php include('../Vue/header.php')?>
   </header>
 
-<?php if(isset($err)): ?>
+<?php if(isset($err)): //Afficage des erreur vus precedament?>
 <p class="error"><?php echo "$err" ?></p>
 <?php endif; ?>
 
@@ -19,7 +19,7 @@
       <form class="bouton" action="Products.ctrl.php" method="get">
         <select class="choix_categorie" name="choix_categorie">
           <option value="Toutes catégories">Toutes catégories </option>
-          <?php foreach ($categories as $b){
+          <?php foreach ($categories as $b){ //Afichage des categorie
             if ($b->name != ""){
               echo "<option value=\"$b->name\">$b->name</option>";
             }
@@ -38,7 +38,7 @@
   <h1>Voici les chats disponibles</h1>
 
   <div class="main">
-    <?php foreach ($products as $a): ?>
+    <?php foreach ($products as $a): //Afichge de toute les image ?>
       <article class="article">
         <div class="image">
           <img src="<?=$imagePath.$a->image?>" alt="<?=$a->description?>">

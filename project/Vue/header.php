@@ -1,5 +1,7 @@
 
 <?php
+
+//Si une perssone est connecte pour le hedar , plus simple que de le mettre partout
 require_once('../Modele/User.class.php');
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -22,13 +24,13 @@ if(isset($user)){
         <li><a href="../Controleur/Proposition.ctrl.php">Dépot d'annonce</a></li>
         <li><a href="../Controleur/Products.ctrl.php">Offres</a></li>
 
-
-        <?php if (isset($name)): ?>
+<!-- Si une perssone est onnete ou nom  -->
+        <?php if (isset($name)): //Si connete elle peux acede as ses offre ou son compte ?>
           <li><a href="../Controleur/myoffers.ctrl.php">Mes offre</a></li>
 
 
         <li style="float:right"><div class="refConnexion"><a href="../Vue/account.view.php"><?php echo $name; ?></a></div></li>
-        <?php else: ?>
+      <?php else: //Si pas connetie on lui propose de ce connte  ?>
         <li style="float:right"><div class="refConnexion"><a href="../Vue/login.view.php">Connexion</a></div></li>
         <?php endif ?>
 

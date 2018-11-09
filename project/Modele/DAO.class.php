@@ -284,7 +284,10 @@ function insertNewProducts(int $ref, string $title ,int $prix,string $path ,stri
     'owner' => htmlspecialchars($owner),
 
     ));
+  
+    return $query;
 }
+
 
 }
 

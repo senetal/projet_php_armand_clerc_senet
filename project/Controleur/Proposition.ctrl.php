@@ -68,7 +68,11 @@ if($ok){
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     //Insere dans la base de donne
     $newRef = ($maxRef+1);
-    $dao->insertNewProducts($newRef,$title,$prix,$fileName,$desc,$cat,$name);
+    $resulta = $dao->insertNewProducts($newRef,$title,$prix,$fileName,$desc,$cat,$name);
+
+if(!$resulta){
+    $err = "Une erreur est survenue merci de bien vouloir recomence";
+}
 
   }else{
     //Si il y a eu un pbr

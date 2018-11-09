@@ -14,8 +14,8 @@
       <input type="password" name="password" value="" maxlength="64" required><br>
       <input type="submit" name="submit" value="Se connecter">
     </form>
-    <p>Pas de compte ? Creez-en un ici :</p>
-    <a href='../Vue/createaccount.view.php'><button type="button">Creer un compte</button></a>
+    <p>Pas de compte ? Créez-en un ici :</p>
+    <a href='../Vue/createaccount.view.php'><button type="button">Créer un compte</button></a>
 
       <?php include('footer.php')?>
   </body>

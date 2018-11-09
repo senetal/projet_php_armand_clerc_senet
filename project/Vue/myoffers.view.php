@@ -16,7 +16,7 @@
   <?php foreach ($tab as $a): ?>
 <article class="zone">
   <h2>Nom : <?=$a->name; ?> </h2>
-  <p>Ref : <?=$a->ref?></p>
+  <p>Référence : <?=$a->ref?></p>
 
 <img src=<?php echo "\"../Modele/data/images/$a->image\""; ?> alt="<?=$a->description?>">
   <br>

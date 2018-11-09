@@ -16,7 +16,7 @@
     <p class="error"><?php echo "$err" ?></p>
     <?php endif; ?>
 
-    <h1>Proposez vos propre chat </h1>
+    <h1>Proposez vos propres chats </h1>
     <article class="">
       <form class="" action="../Controleur/Proposition.ctrl.php" method="post" enctype="multipart/form-data" >
 
@@ -69,7 +69,7 @@
           <div class="d25">
 
 
-            <label for="cat">Categories* :</label>
+            <label for="cat">Catégories* :</label>
 
           </div>
           <div class="d75">

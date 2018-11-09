@@ -29,9 +29,9 @@ if(isset($_SESSION['user'])){
       <input type="password" name="password" value="<?= $usr->password ?>" readonly><br>
       Mail :
       <input type="mail" name="mail" value="<?= $usr->mail ?>" readonly><br>
-      Telephone :
+      Téléphone :
       <input type="text" name="tel" value="<?= $usr->tel ?>" readonly><br>
-      Addresse :
+      Adresse :
       <input type="text" name="address" value="<?= $usr->address ?>" readonly><br>
 
     </div>

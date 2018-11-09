@@ -19,9 +19,9 @@
   background-color: white;
 }
 .bouton{
+  margin: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
-
 }
 
 .image{
@@ -74,7 +74,7 @@
 }
 
 .détails form{
-  margin-top: 10%;
+  margin-top: 5%;
   text-align: center;
   vertical-align: bottom;
 }
